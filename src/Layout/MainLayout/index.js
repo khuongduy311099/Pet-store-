@@ -32,13 +32,18 @@ function MainLayout() {
       <Layout>
           <LayoutHeader />
       </Layout>
-      <Layout style={{marginTop: '40px', backgroundColor: 'white'}}>
+      <Layout style={{marginTop: '80px', backgroundColor: 'white', paddingBottom: "40px" ,borderBottom: "1px solid grey"}}>
         <Sider style={ {backgroundColor: "white"}}>
           <Sidebar />
         </Sider>
         <ImageSlider slides={slides}/>
       </Layout>
+      <Layout>
         <ShopItem />
+        <ShopItem />
+
+
+      </Layout>                    
     </>
   );
 }

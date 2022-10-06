@@ -1,8 +1,8 @@
 import { faDog } from "@fortawesome/free-solid-svg-icons";
-import { Layout } from "antd";
 import { useState } from "react";
 import styles from "./shopItem.scss";
 import Item from "./Item";
+import { Col, Row } from "antd";
 function ShopItem() {
   const typesDog = [
     "Pug",
@@ -14,27 +14,20 @@ function ShopItem() {
     "Damatian",
     "Corgi",
     "Bull Dog",
+    "Chow Chow",
   ];
   const [types, setTypes] = useState(typesDog.slice(0, 3));
-  const [lessBtn, setLessBtn] = useState(false)
+  const [lessBtn, setLessBtn] = useState(false);
   const handleSeeMore = () => {
-    setLessBtn(prev => !prev)
+    setLessBtn((prev) => !prev);
     setTypes(typesDog);
   };
   const handleSeeLess = () => {
-    setLessBtn(prev => !prev)
-    setTypes(typesDog.slice(0, 3))
-  }
+    setLessBtn((prev) => !prev);
+    setTypes(typesDog.slice(0, 3));
+  };
   return (
     <div className="shopItem-wrapper">
-      <div className="shopItem-header">
-        <img 
-          className="header-pic"
-          src="https://img.freepik.com/premium-vector/cartoon-cute-dogs-with-big-bone_52569-1318.jpg?w=2000"
-          alt="header"
-        />
-        <div className="alt-text">Check out our puppies!!!!</div>
-      </div>
       <div className="shopItem-sidebar">
         <ul>
           {types.map((type, index) => (
@@ -43,18 +36,39 @@ function ShopItem() {
             </li>
           ))}
         </ul>
-        <div style={lessBtn ? {display: "none"} : {display:"flex"}} className="shopItem-sidebar-Item enableType" onClick={handleSeeMore}>
+        <div
+          style={lessBtn ? { display: "none" } : { display: "flex" }}
+          className="shopItem-sidebar-Item enableType"
+          onClick={handleSeeMore}
+        >
           See More
         </div>
-        <div style={lessBtn ? {display:"flex"} : {display: "none"}} className="shopItem-sidebar-Item enableType" onClick={handleSeeLess}>
+        <div
+          style={lessBtn ? { display: "flex" } : { display: "none" }}
+          className="shopItem-sidebar-Item enableType"
+          onClick={handleSeeLess}
+        >
           See Less
         </div>
       </div>
-      <div className="item-container">
-        <Item />
-        <Item />
-        <Item />
-      </div>
+      <header className="header">Puppies</header>
+      <Row className="item-container">
+        <Col span={8}>
+          <Item />
+        </Col>
+        <Col span={8}>
+          <Item />
+        </Col>
+        <Col span={8}>
+          <Item />
+        </Col><Col span={8}>
+          <Item />
+        </Col><Col span={8}>
+          <Item />
+        </Col><Col span={8}>
+          <Item />
+        </Col>
+      </Row>
     </div>
   );
 }

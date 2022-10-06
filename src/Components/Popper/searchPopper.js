@@ -26,6 +26,7 @@ function SearchPopper({ children }) {
       interactive
       delay={[300, 300]}
       animation= {false}
+      offset={[0, -10]}
     >
       {children}
     </Tippy>

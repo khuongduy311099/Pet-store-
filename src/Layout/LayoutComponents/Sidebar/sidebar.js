@@ -13,6 +13,7 @@ function Sidebar() {
           zIndex={10}
           delay={[250, 800]}
           offset={[180, -55]}
+          hideOnClick={false}
           render={(attr) => <TypePopper />}
           interactive
           placement="bottom-end"

@@ -68,6 +68,22 @@ function ItemProvider({children}) {
         if (!flag) setLocalCart([...localCart, localCart.push(changedItem)]);
         setTotal(totalCart(localCart));
         localStorage.setItem("currentCart", JSON.stringify([...localCart]));
+
+        //cart quantity changed
+        localStorage.setItem(
+            "currentCartQuantity",
+            parseInt(
+                JSON.stringify(
+                    JSON.parse(localStorage.getItem("currentCart")).reduce(
+                        (prev, curr) => prev + curr.quantity,
+                        0
+                    )
+                )
+            )
+        );
+        setCurrentQuantity(
+            JSON.parse(localStorage.getItem("currentCartQuantity"))
+        );
     };
 
     const totalCart = (localCart) => {

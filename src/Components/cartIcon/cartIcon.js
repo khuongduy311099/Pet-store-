@@ -16,7 +16,6 @@ function CartIcon() {
             offset={[0, 60]}
             animation={false}
             delay={[200, 800]}
-            visible
         >
             <div className="cart-wrapper">
                 <div className="cart-items">

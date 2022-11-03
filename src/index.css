@@ -1,4 +1,5 @@
 html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -9,9 +10,21 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 0 200px;
 }
 
+a {
+  transition: none !important;
+}
+
+li {
+  list-style: none !important;
+}
+
+ol, ul, dl {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 !important;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

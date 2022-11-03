@@ -1,139 +1,161 @@
 .shopItem-wrapper {
-  position: relative;
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  min-width: 100%;
-  margin-bottom: 100px;
-  min-height: 0;
+    position: relative;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    min-width: 100%;
+    padding-bottom: 70px;
+    margin-top: 30px;
+    min-height: 0;
+    border-bottom: 1px solid black;
+}
+
+.shopItem-title {
+    margin-top: 40px;
+
+    align-items: center;
+    justify-content: center;
 }
 
 .header {
-  position: relative;
-  margin-top: 20px;
-  margin-bottom: 250px;
-  margin-left: 300px;
-  color: white;
-  font-weight: 700;
-  font-size: 40px;
-  width: 200px;
-  height: 100px;
-  border: 3px solid black;
-  border-radius: 20px;
-  background-color: black;
-  line-height: 80px;
-  text-align: center ;
+    position: relative;
+    color: white;
+    font-weight: 700;
+    font-size: 40px;
+    width: 200px;
+    height: 100px;
+    border: 3px solid black;
+    border-radius: 20px;
+    background-color: black;
+    line-height: 80px;
+    text-align: center;
+    margin-bottom: 25px;
 }
 
 .shopItem-sidebar {
-  position: absolute;
-  top: 40%;
-  left: 0%;
-  margin-left: 20px;
-  min-width: 0;
+    min-width: 0;
 }
 
 .shopItem-sidebar-Item {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  width: 200px;
-  height: 50px;
-  padding-bottom: 4px;
-  padding-right: 2px;
-  border: 1px solid;
-  border-radius: 10px;
-  margin: 16px auto;
-  font-weight: 700;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+    padding-bottom: 4px;
+    padding-right: 2px;
+    border: 1px solid;
+    border-radius: 10px;
+    margin: 16px auto;
+    font-weight: 700;
 
-  &:hover {
-    cursor: pointer;
-    color: white;
-    box-shadow: 10px 10px 20px rgb(149, 147, 147);
-    animation: full 3s linear infinite alternate;
-  }
+    &:hover {
+        cursor: pointer;
+        color: white;
+        box-shadow: 10px 10px 20px rgb(149, 147, 147);
+        animation: full 3s linear infinite alternate;
+    }
 }
 
 @keyframes full {
-  0% {
-    background-color: white;
-    color: black;
-  }
+    0% {
+        background-color: white;
+        color: black;
+    }
 
-  100% {
-    background-color: black;
-    color: white;
-  }
+    100% {
+        background-color: black;
+        color: white;
+    }
 }
 .enableType {
-  position: absolute;
-  left: 16%;
-  background-color: black;
-  color: white;
+    position: absolute;
+    left: 16%;
+    background-color: black;
+    color: white;
 }
 
 .item-container {
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  right: 0%;
-  top: 43%;
-  width: 75%;
-  height: fit-content;
-  max-width: 100%;
-  flex-wrap: wrap;
-  min-height: 0;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    max-width: 100%;
+    flex-wrap: wrap;
+    min-height: 0;
+    padding-left: 10px;
 }
 
 .item-wrapper {
-  height: 310px;
-  width: 275px;
-  background-color: grey;
-  border-radius: 200px 200px 50px 50px;
-  margin-top: 10px;
-  flex-shrink: 0;
-}
+    height: 310px;
+    max-width: 275px;
+    background-color: grey;
+    border-radius: 200px 200px 50px 50px;
+    margin-top: 10px;
+    flex-shrink: 0;
 
+    &:hover {
+        cursor: pointer;
+        box-shadow: 10px 10px 20px rgb(149, 147, 147);
+    }
+}
 .item-image {
-  position: relative;
-  border-radius: 25%;
-  object-fit: contain;
+    position: relative;
+    border-radius: 25%;
+    object-fit: contain;
 
-  &:hover .item-2nd-image {
-    display: block;
-    cursor: pointer;
-  }
+    &:hover .item-2nd-image {
+        display: block;
+        cursor: pointer;
+    }
 }
-
+.item-img {
+    width: 100%;
+    height: 50%;
+}
 .item-1st-image {
-  border-radius: 50px 50px 0 0;
-  display: block;
-  position: absolute;
-  top: 0;
+    width: 100%;
+    height: 185px;
+    border-radius: 50px 50px 0 0;
+    display: block;
+    position: absolute;
+    top: 0;
+    object-fit: fill;
 }
 
 .item-2nd-image {
-  border-radius: 50px 50px 0 0;
-  display: none;
-  position: absolute;
-  top: 0;
-  z-index: 99;
+    width: 100%;
+    height: 185px;
+
+    border-radius: 50px 50px 0 0;
+    display: none;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    object-fit: fill;
 }
 
 .item-info-wrapper {
-  position: absolute;
-  top: 62%;
-  left: 10%;
+    position: absolute;
+    top: 62%;
+    left: 10%;
 }
 
 .item-info {
-  display: flex;
-  justify-content: center;
-  font-weight: 700;
-  margin-top: 10px;
-  width: 210px;
-  color: white;
-  border: 2px solid white;
-  border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    margin-top: 10px;
+    width: 210px;
+    color: white;
+    border: 2px solid white;
+    border-radius: 20px;
+
+    &:hover {
+        border: 2px solid black;
+        height: 30px;
+    }
 }

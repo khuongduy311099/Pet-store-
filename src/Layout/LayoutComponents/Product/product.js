@@ -1,7 +1,7 @@
 import ProductItem from "./ProductItem";
 
 function Product() {
-    return <ProductItem />;
+  return <ProductItem />;
 }
 
 export default Product;

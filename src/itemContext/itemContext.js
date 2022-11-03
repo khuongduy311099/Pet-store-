@@ -110,7 +110,6 @@ function ItemProvider({children}) {
             currCart.map((currCartItem, index) => {
                 if (currCartItem.name === item.name) {
                     flag = true;
-                    currCartItem.quantity = item.quantity;
                 }
                 return item;
             });

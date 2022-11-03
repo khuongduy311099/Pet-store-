@@ -51,7 +51,6 @@ function MainLayout() {
             </Layout>
             <Content>
                 <ShopItem />
-                <ShopItem />
             </Content>
         </>
     );

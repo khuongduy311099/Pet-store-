@@ -1,15 +1,15 @@
 import { faDog } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import React, { useState } from "react";
 import styles from "./shopItem.scss";
 import Item from "./Item";
 import { Col, Row } from "antd";
 import { Link } from "react-router-dom";
 import { type } from "@testing-library/user-event/dist/type";
-//itemContext
+// itemContext
 import { useContext } from "react";
 import { ItemContext } from "../../itemContext/itemContext";
 
-//translation
+// translation
 import { useTranslation } from "react-i18next";
 import i18n from "../../translation/i18n";
 function ShopItem() {

@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 
-//translations
+// translations
 import i18n from "./translation/i18n";
 import { I18nextProvider } from "react-i18next";
 import { ItemProvider } from "./itemContext/itemContext";

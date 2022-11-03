@@ -1,9 +1,10 @@
 import { faCat, faDog, faFish, faPaw } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
 
 import styles from "./sidebar.scss";
 
-//translation
+// translation
 import { useTranslation } from "react-i18next";
 import i18n from "../../../translation/i18n";
 function TypePopper() {

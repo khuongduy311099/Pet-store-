@@ -9,7 +9,7 @@ import styles from "./Popper.scss";
 import Tippy from "@tippyjs/react";
 import { useState } from "react";
 
-//translations
+// translations
 import i18n from "../../translation/i18n";
 import { useTranslation } from "react-i18next";
 function SearchPopper({ children }) {
@@ -22,7 +22,7 @@ function SearchPopper({ children }) {
   };
 
   const handleHide = () => {
-    if (!!searchValue) {
+    if (searchValue) {
       return false;
     } else return true;
   };

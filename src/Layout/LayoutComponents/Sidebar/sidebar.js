@@ -1,8 +1,9 @@
 import Tippy from "@tippyjs/react/headless";
 import styles from "./sidebar.scss";
 import TypePopper from "./type-popper";
+import React from "react";
 
-//translation
+// translation
 import { useTranslation } from "react-i18next";
 import i18n from "../../../translation/i18n";
 function Sidebar({ styles }) {

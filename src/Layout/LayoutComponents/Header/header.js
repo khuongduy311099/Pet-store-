@@ -1,4 +1,5 @@
 import styles from "./header.scss";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartShopping,
@@ -13,7 +14,7 @@ import LanguagePopper from "../../../Components/Popper/languagePopper";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
 
-//translation
+// translation
 import { useTranslation } from "react-i18next";
 import i18n from "../../../translation/i18n";
 function LayoutHeader({ main }) {

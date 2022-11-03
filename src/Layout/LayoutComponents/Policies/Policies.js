@@ -1,3 +1,4 @@
+import React from "react";
 import "./Policies.scss";
 function Policies() {
   return (

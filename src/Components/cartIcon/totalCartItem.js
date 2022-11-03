@@ -1,10 +1,11 @@
 import { Button, Col, Row } from "antd";
 import "./cartIcon.scss";
+import React from "react";
 
-//translation
+// translation
 import i18n from "../../translation/i18n";
 import { useTranslation } from "react-i18next";
-//items Context
+// items Context
 import { useContext, useEffect } from "react";
 import { ItemContext } from "../../itemContext/itemContext";
 import Quantity from "./quantity";

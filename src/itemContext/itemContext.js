@@ -1,9 +1,9 @@
-import { useState, createContext, useEffect } from "react";
+import React, { useState, createContext } from "react";
 
 const ItemContext = createContext();
 const items = [
   {
-    name: "Chow1", //id trên mongoDB khi ghép API
+    name: "Chow1", // id trên mongoDB khi ghép API
     age: 3,
     color: "Brown",
     type: "Chow Chow",
@@ -49,7 +49,7 @@ function ItemProvider({ children }) {
     JSON.parse(localStorage.getItem("currentCartQuantity"))
   );
   const [localCart, setLocalCart] = useState(
-    !!JSON.parse(localStorage.getItem("currentCart"))
+    JSON.parse(localStorage.getItem("currentCart"))
       ? JSON.parse(localStorage.getItem("currentCart"))
       : []
   );
@@ -69,7 +69,7 @@ function ItemProvider({ children }) {
     setTotal(totalCart(localCart));
     localStorage.setItem("currentCart", JSON.stringify([...localCart]));
 
-    //cart quantity changed
+    // cart quantity changed
     localStorage.setItem(
       "currentCartQuantity",
       parseInt(
@@ -98,7 +98,7 @@ function ItemProvider({ children }) {
     setLocalCart([...localCart, item]);
   };
   const handleLocalCart = (item) => {
-    let currCart = !!JSON.parse(localStorage.getItem("currentCart"))
+    const currCart = JSON.parse(localStorage.getItem("currentCart"))
       ? JSON.parse(localStorage.getItem("currentCart"))
       : [];
     if (currCart.length >= 1) {

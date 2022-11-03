@@ -1,4 +1,5 @@
 import styles from "./footer.scss";
+import React from "react";
 import { Col, Row } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,7 +12,7 @@ import {
 import Tippy from "@tippyjs/react";
 import CartIcon from "../../../Components/cartIcon/cartIcon";
 
-//translation
+// translation
 import i18n from "../../../../src/translation/i18n";
 import { useTranslation } from "react-i18next";
 function LayoutFooter({ product }) {

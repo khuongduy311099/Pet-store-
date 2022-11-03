@@ -1,6 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./cartIcon.scss";
-
 function Quantity({ cartItem, onChange }) {
   const [quantity, setQuantity] = useState(
     parseInt(

@@ -2,9 +2,9 @@ import React from "react";
 import "antd/dist/antd.css";
 import { Layout } from "antd";
 
-import LayoutHeader from "../LayoutComponents/Header/header";
-import LayoutFooter from "../LayoutComponents/Footer/footer";
-import Product from "../LayoutComponents/Product/product";
+import LayoutHeader from "../../Layout/LayoutComponents/Header/header";
+import LayoutFooter from "../../Layout/LayoutComponents/Footer/footer";
+import Product from "../../Layout/LayoutComponents/Product/product";
 import TotalCartItem from "../../Components/cartIcon/totalCartItem";
 import CartIcon from "../../Components/cartIcon/cartIcon";
 const { Header, Footer, Sider, Content } = Layout;

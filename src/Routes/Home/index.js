@@ -2,11 +2,11 @@ import React from "react";
 import "antd/dist/antd.css";
 import { Layout } from "antd";
 
-import LayoutHeader from "../LayoutComponents/Header/header";
+import LayoutHeader from "../../Layout/LayoutComponents/Header/header";
 import ImageSlider from "../../Components/ImageSlider/image-slider";
-import Sidebar from "../LayoutComponents/Sidebar/sidebar";
+import Sidebar from "../../Layout/LayoutComponents/Sidebar/sidebar";
 import ShopItem from "../../Components/ShopItem/shopItem";
-import LayoutFooter from "../LayoutComponents/Footer/footer";
+import LayoutFooter from "../../Layout/LayoutComponents/Footer/footer";
 import CartIcon from "../../Components/cartIcon/cartIcon";
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -37,23 +37,9 @@ function MainLayout() {
 
   return (
     <>
-      <Layout
-        style={{
-          marginTop: "160px",
-          backgroundColor: "white",
-          paddingBottom: "40px",
-          borderBottom: "1px solid grey",
-        }}
-      >
-        <Sider style={{ backgroundColor: "white" }}>
-          <Sidebar />
-        </Sider>
-        <ImageSlider slides={slides} />
-      </Layout>
-      <Content>
-        <ShopItem />
-        <ShopItem />
-      </Content>
+      <ImageSlider slides={slides} />
+      <ShopItem />
+      <ShopItem />
     </>
   );
 }

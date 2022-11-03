@@ -64,6 +64,7 @@ function ItemProvider({ children }) {
           item.quantity = changedItem.quantity;
           flag = true;
         }
+        return item;
       });
     if (!flag) setLocalCart([...localCart, localCart.push(changedItem)]);
     setTotal(totalCart(localCart));

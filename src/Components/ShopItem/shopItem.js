@@ -71,18 +71,20 @@ function ShopItem() {
           </div>
         </Col>
         <Col span={18} className="item-container">
-          {itemContext.listItem.map((item, index) => (
-            <Col sm={12} xxl={8}>
-              <Link
-                to="/product"
-                onClick={() => {
-                  localStorage.setItem("currentItem", JSON.stringify(item));
-                }}
-              >
-                <Item name={item.name} key={index} items={item} />
-              </Link>
-            </Col>
-          ))}
+          <Row>
+            {itemContext.listItem.map((item, index) => (
+              <Col span={8}>
+                <Link
+                  to="/product"
+                  onClick={() => {
+                    localStorage.setItem("currentItem", JSON.stringify(item));
+                  }}
+                >
+                  <Item name={item.name} key={index} items={item} />
+                </Link>
+              </Col>
+            ))}
+          </Row>
         </Col>
       </Row>
     </div>

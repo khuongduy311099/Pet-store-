@@ -1,22 +1,17 @@
-import styles from "./header.scss";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCartShopping,
-  faEarthAsia,
-  faSearch,
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
+import { faEarthAsia, faSearch } from "@fortawesome/free-solid-svg-icons";
 import Tippy from "@tippyjs/react/headless";
 import SearchPopper from "../../../Components/Popper/searchPopper";
 import "tippy.js/animations/scale.css";
 import LanguagePopper from "../../../Components/Popper/languagePopper";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
-
 // translation
 import { useTranslation } from "react-i18next";
-import i18n from "../../../translation/i18n";
+
+import "./header.scss";
+
 function LayoutHeader({ main }) {
   const currentUser = {
     name: "Khương Duy",
@@ -34,7 +29,7 @@ function LayoutHeader({ main }) {
         />
       </Link>
       <div className="header-menu">
-        <a href="#" className="header-btn">
+        <a href="/" className="header-btn">
           {t("Home")}
         </a>
 

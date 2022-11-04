@@ -8,6 +8,8 @@ import LoginLayout from "./Layout/LoginLayout/Login";
 import MainLayout from "./Routes/Home";
 import RegisterLayout from "./Layout/RegisterLayout/RegisterLayout";
 import Cagetory from "./Routes/Cagetory";
+import CategoryDetailItem from "./Routes/Cagetory/CategoryDetail";
+import CategoryDetailItems from "./Routes/Cagetory/CategoryDetail";
 
 function App() {
     return (
@@ -15,10 +17,15 @@ function App() {
             <LayoutHeader />
             <Content style={{padding: "150px 50px", backgroundColor: "white"}}>
                 <Routes>
-                    <Route path="/" element={<Cagetory />} />
+                    <Route path="/" element={<MainLayout />} />
                     <Route path="/login" element={<LoginLayout />} />
                     <Route path="/register" element={<RegisterLayout />} />
                     <Route path="/product" element={<Product />} />
+                    <Route path="/dog-category" element={<Cagetory />}></Route>
+                    <Route
+                        path="/dog-category/pug"
+                        element={<CategoryDetailItems />}
+                    ></Route>
                 </Routes>
             </Content>
 

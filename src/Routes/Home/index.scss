@@ -17,6 +17,7 @@
 }
 
 .list-button {
+  background-color: white;
   height: 100%;
   border-radius: 20px !important;
   overflow: hidden;
@@ -43,4 +44,12 @@
       }
     }
   }
+}
+
+.container{
+  width: 100%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }

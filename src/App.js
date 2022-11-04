@@ -14,8 +14,8 @@ function App() {
       <LayoutHeader />
       <Content
         style={{
-          padding: "150px 50px",
-          backgroundColor: "white",
+          padding: "50px 50px",
+          backgroundColor: "#f2f2f2",
         }}
       >
         <Routes>

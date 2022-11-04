@@ -4,6 +4,7 @@ import {
   Avatar,
   Button,
   Card,
+  Carousel,
   Col,
   Layout,
   List,
@@ -13,80 +14,57 @@ import {
 } from "antd";
 
 import LayoutHeader from "../../Layout/LayoutComponents/Header/header";
-import ImageSlider from "../../Components/ImageSlider/image-slider";
+import ImageSlider from "../../Components/ImageSlider";
 import Sidebar from "../../Layout/LayoutComponents/Sidebar/sidebar";
 import ShopItem from "../../Components/ShopItem/shopItem";
 import LayoutFooter from "../../Layout/LayoutComponents/Footer/footer";
 import CartIcon from "../../Components/cartIcon/cartIcon";
 import ContentContainer from "../../Layout/LayoutComponents/ContentContainer/footer";
-import Carousel from "react-grid-carousel";
 import "./index.scss";
+import BannerSlider from "../../Components/BannerSlider";
+import DogTab from "../../Components/DogTab";
 const { Header, Footer, Sider, Content } = Layout;
 const { Text, Link, Title } = Typography;
 
 const slides = [
   {
-    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLhx5TnyzqfPwC5ODl66x1vbtLpwBEoTrO2w&usqp=CAU",
-    name: "Golden",
-  },
-  {
-    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT046VpJuuvwwgYOINo2f0fBZCKgFM0Gk5iuw&usqp=CAU",
-    name: "Pug",
-  },
-  {
-    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQokLuwN9T-snQrGWXdiMs_adqsQsNuE1KRqA&usqp=CAU",
-    name: "Pitbull",
-  },
-  {
-    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK-sREt67CNicoQ4B2wLzFEZHqBNL1KkGBYw&usqp=CAU",
+    url: "https://azpet.b-cdn.net/wp-content/uploads/2022/04/C2066-C12855-1.jpg",
     name: "Rot",
   },
   {
-    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLhx5TnyzqfPwC5ODl66x1vbtLpwBEoTrO2w&usqp=CAU",
-    name: "Golden",
-  },
-  {
-    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT046VpJuuvwwgYOINo2f0fBZCKgFM0Gk5iuw&usqp=CAU",
-    name: "Pug",
-  },
-  {
-    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQokLuwN9T-snQrGWXdiMs_adqsQsNuE1KRqA&usqp=CAU",
-    name: "Pitbull",
-  },
-  {
-    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK-sREt67CNicoQ4B2wLzFEZHqBNL1KkGBYw&usqp=CAU",
+    url: "https://azpet.b-cdn.net/wp-content/uploads/2022/01/M12279-1.jpg",
     name: "Rot",
   },
   {
-    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLhx5TnyzqfPwC5ODl66x1vbtLpwBEoTrO2w&usqp=CAU",
-    name: "Golden",
-  },
-  {
-    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT046VpJuuvwwgYOINo2f0fBZCKgFM0Gk5iuw&usqp=CAU",
-    name: "Pug",
-  },
-  {
-    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQokLuwN9T-snQrGWXdiMs_adqsQsNuE1KRqA&usqp=CAU",
-    name: "Pitbull",
-  },
-  {
-    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK-sREt67CNicoQ4B2wLzFEZHqBNL1KkGBYw&usqp=CAU",
+    url: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/C12108-1-1.jpg",
     name: "Rot",
   },
   {
-    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLhx5TnyzqfPwC5ODl66x1vbtLpwBEoTrO2w&usqp=CAU",
-    name: "Golden",
+    url: "https://azpet.b-cdn.net/wp-content/uploads/2022/06/C2286-C12956-1.jpg",
+    name: "Rot",
   },
   {
-    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT046VpJuuvwwgYOINo2f0fBZCKgFM0Gk5iuw&usqp=CAU",
-    name: "Pug",
+    url: "https://azpet.b-cdn.net/wp-content/uploads/2022/05/C2243-C12926-1.jpg",
+    name: "Rot",
   },
   {
-    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQokLuwN9T-snQrGWXdiMs_adqsQsNuE1KRqA&usqp=CAU",
-    name: "Pitbull",
+    url: "https://azpet.b-cdn.net/wp-content/uploads/2021/08/Phoc-Soc-Cream-C12370-1.jpg",
+    name: "Rot",
   },
   {
-    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK-sREt67CNicoQ4B2wLzFEZHqBNL1KkGBYw&usqp=CAU",
+    url: "https://azpet.b-cdn.net/wp-content/uploads/2022/04/C2066-C12855-1.jpg",
+    name: "Rot",
+  },
+  {
+    url: "https://azpet.b-cdn.net/wp-content/uploads/2022/01/M12279-1.jpg",
+    name: "Rot",
+  },
+  {
+    url: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/C12108-1-1.jpg",
+    name: "Rot",
+  },
+  {
+    url: "https://azpet.b-cdn.net/wp-content/uploads/2022/06/C2286-C12956-1.jpg",
     name: "Rot",
   },
 ];
@@ -101,7 +79,7 @@ function MainLayout() {
   return (
     <>
       <ContentContainer>
-        <Row gutter={[0, 60]}>
+        <Row gutter={[0, 30]}>
           <Row gutter={[8, 0]} type="flex">
             <Col span={6}>
               <List
@@ -157,9 +135,22 @@ function MainLayout() {
               </Row>
             </Col>
           </Row>
+          {/* <Row>
+            <Col span={24}>
+              <BannerSlider slides={slides} />
+            </Col>
+          </Row> */}
+
           <Row>
-            <ImageSlider slides={slides} />
+            <Col span={24} className="container">
+              <Title style={{ color: "#b90000" }} level={3}>
+                Giá sốc
+              </Title>
+              <ImageSlider slides={slides} />
+            </Col>
           </Row>
+
+          <DogTab />
         </Row>
       </ContentContainer>
     </>

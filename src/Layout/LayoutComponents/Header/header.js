@@ -6,10 +6,10 @@ import SearchPopper from "../../../Components/Popper/searchPopper";
 import "tippy.js/animations/scale.css";
 import LanguagePopper from "../../../Components/Popper/languagePopper";
 import { Link } from "react-router-dom";
-import { Button } from "antd";
+import { Avatar, Button, Dropdown, Menu, message, Select, Space } from "antd";
+import EnFlag from "../../../assets/Logo/united-kingdom.png";
 // translation
 import { useTranslation } from "react-i18next";
-
 import "./header.scss";
 
 function LayoutHeader({ main }) {
@@ -19,6 +19,35 @@ function LayoutHeader({ main }) {
       "https://scontent.fsgn2-2.fna.fbcdn.net/v/t1.6435-1/185188939_2885221165066292_6106096938833222997_n.jpg?stp=dst-jpg_p320x320&_nc_cat=103&ccb=1-7&_nc_sid=7206a8&_nc_ohc=WMAltXsmAxcAX_nh7lc&_nc_ht=scontent.fsgn2-2.fna&oh=00_AfBRorrMS81-kgKzNWUgQ9jD8kramXUd-bVd0B8VyqBzCg&oe=637F4366",
   };
   const [t] = useTranslation();
+
+  const items = [
+    {
+      label: "1st menu item",
+      key: "1",
+      icon: <Avatar src={EnFlag} />,
+    },
+    {
+      label: "2nd menu item",
+      key: "2",
+      icon: <Avatar src={EnFlag} />,
+    },
+    {
+      label: "3rd menu item",
+      key: "3",
+      icon: <Avatar src={EnFlag} />,
+    },
+  ];
+
+  const handleMenuClick = (e) => {
+    message.info("Click on menu item.");
+    console.log("click", e);
+  };
+
+  const menuProps = {
+    items,
+    onClick: handleMenuClick,
+  };
+
   return (
     <div className="wrapper">
       <Link to="/">
@@ -28,31 +57,19 @@ function LayoutHeader({ main }) {
           className="logo"
         />
       </Link>
-      <div className="header-menu">
-        <a href="/" className="header-btn">
-          {t("Home")}
-        </a>
-
-        <a href="#product" className="header-btn">
-          {t("Product")}
-        </a>
-        <a href="#contact" className="header-btn">
-          {t("Pages")}
-        </a>
-        <a href="#contact" className="header-btn">
-          {t("SERVICES")}
-        </a>
-        <a href="#contact" className="header-btn">
-          {t("Contact")}
-        </a>
-      </div>
       <div className="header-icon">
-        <SearchPopper>
+        {/* <SearchPopper>
           <FontAwesomeIcon className="icon" icon={faSearch} />
-        </SearchPopper>
-        <LanguagePopper>
+        </SearchPopper> */}
+        {/* <LanguagePopper>
           <FontAwesomeIcon className="icon" icon={faEarthAsia} />
-        </LanguagePopper>
+        </LanguagePopper> */}
+
+        <Dropdown.Button
+          icon={<Avatar src={EnFlag} />}
+          menu={menuProps}
+        ></Dropdown.Button>
+
         {currentUser ? (
           <div className="user">
             <Tippy

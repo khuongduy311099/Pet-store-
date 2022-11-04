@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { type } from "@testing-library/user-event/dist/type";
 // itemContext
 import { useContext } from "react";
-import { ItemContext } from "../../itemContext/itemContext";
+import { ItemContext } from "../../Context/cartContext";
 
 // translation
 import { useTranslation } from "react-i18next";

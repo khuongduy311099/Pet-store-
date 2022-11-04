@@ -1,16 +1,18 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEarthAsia, faSearch } from "@fortawesome/free-solid-svg-icons";
+import React, { useContext } from "react";
 import Tippy from "@tippyjs/react/headless";
-import SearchPopper from "../../../Components/Popper/searchPopper";
 import "tippy.js/animations/scale.css";
-import LanguagePopper from "../../../Components/Popper/languagePopper";
 import { Link } from "react-router-dom";
-import { Avatar, Button, Dropdown, Menu, message, Select, Space } from "antd";
+import { Avatar, Button, Dropdown, Menu, Space } from "antd";
 import EnFlag from "../../../assets/Logo/united-kingdom.png";
+import VnFlag from "../../../assets/Logo/vietnam.png";
+import KorFlag from "../../../assets/Logo/south-korea.png";
+
+import { GlobalContext } from "../../../Context/globalContext";
+
 // translation
 import { useTranslation } from "react-i18next";
 import "./header.scss";
+import i18n from "../../../translation/i18n";
 
 function LayoutHeader({ main }) {
   const currentUser = {
@@ -19,34 +21,33 @@ function LayoutHeader({ main }) {
       "https://scontent.fsgn2-2.fna.fbcdn.net/v/t1.6435-1/185188939_2885221165066292_6106096938833222997_n.jpg?stp=dst-jpg_p320x320&_nc_cat=103&ccb=1-7&_nc_sid=7206a8&_nc_ohc=WMAltXsmAxcAX_nh7lc&_nc_ht=scontent.fsgn2-2.fna&oh=00_AfBRorrMS81-kgKzNWUgQ9jD8kramXUd-bVd0B8VyqBzCg&oe=637F4366",
   };
   const [t] = useTranslation();
+  const globalContext = useContext(GlobalContext);
 
-  const items = [
-    {
-      label: "1st menu item",
-      key: "1",
-      icon: <Avatar src={EnFlag} />,
-    },
-    {
-      label: "2nd menu item",
-      key: "2",
-      icon: <Avatar src={EnFlag} />,
-    },
-    {
-      label: "3rd menu item",
-      key: "3",
-      icon: <Avatar src={EnFlag} />,
-    },
-  ];
-
-  const handleMenuClick = (e) => {
-    message.info("Click on menu item.");
-    console.log("click", e);
-  };
-
-  const menuProps = {
-    items,
-    onClick: handleMenuClick,
-  };
+  const menu = (
+    <Menu
+      onClick={(e) => {
+        console.log(globalContext);
+        globalContext.handleChangeLanguage(e.key);
+      }}
+      items={[
+        {
+          key: "en",
+          label: "English",
+          icon: <Avatar size={20} src={EnFlag} />,
+        },
+        {
+          key: "vi",
+          label: "Vietnam",
+          icon: <Avatar size={20} src={VnFlag} />,
+        },
+        {
+          key: "kr",
+          label: "Korean",
+          icon: <Avatar size={20} src={KorFlag} />,
+        },
+      ]}
+    />
+  );
 
   return (
     <div className="wrapper">
@@ -58,46 +59,51 @@ function LayoutHeader({ main }) {
         />
       </Link>
       <div className="header-icon">
+        <Space>
+          <Dropdown
+            overlayClassName="language-dropdown"
+            overlay={menu}
+            placement="bottom"
+            arrow={{
+              pointAtCenter: true,
+            }}
+          >
+            {globalContext.languageIcon(i18n.language)}
+          </Dropdown>
+
+          {currentUser ? (
+            // <div className="user">
+            //   <Tippy
+            //     render={(attr) => (
+            //       <div className="username">{currentUser.name}</div>
+            //     )}
+            //     animation={false}
+            //     offset={[30, 10]}
+            //     placement="bottom-end"
+            //     delay={[50, 500]}
+            //   >
+            //     <img
+            //       src={currentUser.avatar}
+            //       className="avatar"
+            //       alt={currentUser.name}
+            //     />
+            //   </Tippy>
+            // </div>
+            <Avatar size={30} src={currentUser.avatar} />
+          ) : (
+            <Link to="/login">
+              <Button style={{ borderRadius: 20 }} size="medium">
+                Login
+              </Button>
+            </Link>
+          )}
+        </Space>
         {/* <SearchPopper>
           <FontAwesomeIcon className="icon" icon={faSearch} />
         </SearchPopper> */}
         {/* <LanguagePopper>
           <FontAwesomeIcon className="icon" icon={faEarthAsia} />
         </LanguagePopper> */}
-
-        <Dropdown.Button
-          icon={<Avatar src={EnFlag} />}
-          menu={menuProps}
-        ></Dropdown.Button>
-
-        {currentUser ? (
-          <div className="user">
-            <Tippy
-              render={(attr) => (
-                <div className="username">{currentUser.name}</div>
-              )}
-              animation={false}
-              offset={[30, 10]}
-              placement="bottom-end"
-              delay={[50, 500]}
-            >
-              <img
-                src={currentUser.avatar}
-                className="avatar"
-                alt={currentUser.name}
-              />
-            </Tippy>
-          </div>
-        ) : (
-          <Link to="/login">
-            <Button
-              style={{ borderRadius: "20px", marginLeft: "10px" }}
-              size="large"
-            >
-              Login
-            </Button>
-          </Link>
-        )}
       </div>
     </div>
   );

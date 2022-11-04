@@ -1,7 +1,7 @@
 import styles from "./shopItem.scss";
 // itemcontext
 import React, { useContext } from "react";
-import { ItemContext } from "../../itemContext/itemContext";
+import { ItemContext } from "../../Context/cartContext";
 
 // translations
 import i18n from "../../translation/i18n";

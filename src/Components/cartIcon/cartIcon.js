@@ -6,7 +6,7 @@ import Tippy from "@tippyjs/react";
 import TotalCartItem from "./totalCartItem";
 import "./cartIcon.scss";
 import { useState, useContext } from "react";
-import { ItemContext } from "../../itemContext/itemContext";
+import { ItemContext } from "../../Context/cartContext";
 
 function CartIcon() {
   const cartContext = useContext(ItemContext);

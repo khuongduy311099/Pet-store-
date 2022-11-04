@@ -1,4 +1,4 @@
-import Layout, { Content } from "antd/lib/layout/layout";
+import Layout, { Content, Footer } from "antd/lib/layout/layout";
 import { Route, Routes } from "react-router-dom";
 import TotalCartItem from "./Components/cartIcon/totalCartItem";
 import LayoutFooter from "./Layout/LayoutComponents/Footer/footer";
@@ -12,7 +12,12 @@ function App() {
   return (
     <Layout>
       <LayoutHeader />
-      <Content style={{ padding: "150px 50px", backgroundColor: "white" }}>
+      <Content
+        style={{
+          padding: "150px 50px",
+          backgroundColor: "white",
+        }}
+      >
         <Routes>
           <Route path="/" element={<MainLayout />} />
           <Route path="/login" element={<LoginLayout />} />
@@ -21,7 +26,10 @@ function App() {
         </Routes>
       </Content>
 
-      <LayoutFooter />
+      {/* <LayoutFooter /> */}
+      <Footer style={{ textAlign: "center" }}>
+        ©2022 Created by KhuongDuy
+      </Footer>
     </Layout>
   );
 }

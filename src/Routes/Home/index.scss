@@ -1,0 +1,46 @@
+.center-col {
+  overflow: hidden;
+  img {
+    max-height: 500px;
+    max-width: 100%;
+    border-radius: 20px;
+  }
+}
+
+.right-col {
+  overflow: hidden;
+  img {
+    border-radius: 15px;
+    max-height: 250px;
+    max-width: 100%;
+  }
+}
+
+.list-button {
+  height: 100%;
+  border-radius: 20px !important;
+  overflow: hidden;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  cursor: pointer;
+  .ant-spin-nested-loading {
+    height: 100%;
+    .ant-spin-container {
+      height: 100%;
+      .ant-list-items {
+        height: 100%;
+        .ant-list-item {
+          height: 33.3%;
+          h5 {
+            margin-bottom: 0;
+          }
+          &:hover {
+            background-color: ghostwhite;
+            h5 {
+              color: red;
+            }
+          }
+        }
+      }
+    }
+  }
+}

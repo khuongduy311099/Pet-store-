@@ -6,21 +6,24 @@ import { BrowserRouter } from "react-router-dom";
 
 // translations
 import { I18nextProvider } from "react-i18next";
-import { ItemProvider } from "./itemContext/itemContext";
+import { ItemProvider } from "./Context/cartContext";
 
 import "./index.css";
 import "antd/dist/antd.min.css";
+import { GlobalProvider } from "./Context/globalContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
     <ItemProvider>
-      <I18nextProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </I18nextProvider>
+      <GlobalProvider>
+        <I18nextProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </I18nextProvider>
+      </GlobalProvider>
     </ItemProvider>
   </React.StrictMode>
 );

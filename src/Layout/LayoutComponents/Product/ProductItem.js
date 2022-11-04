@@ -5,7 +5,7 @@ import Sidebar from "../Sidebar/sidebar";
 import LayoutHeader from "../Header/header";
 // itemContext
 import { useContext } from "react";
-import { ItemContext } from "../../../../src/itemContext/itemContext";
+import { ItemContext } from "../../../Context/cartContext";
 // translation
 import i18n from "../../../translation/i18n";
 import { useTranslation } from "react-i18next";

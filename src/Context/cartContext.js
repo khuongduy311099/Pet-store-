@@ -44,6 +44,7 @@ const items = [
 ];
 
 function ItemProvider({ children }) {
+  const [total, setTotal] = useState(0);
   const [currentItem, setCurrentItem] = useState({});
   const [currentQuantity, setCurrentQuantity] = useState(
     JSON.parse(localStorage.getItem("currentCartQuantity"))
@@ -53,8 +54,6 @@ function ItemProvider({ children }) {
       ? JSON.parse(localStorage.getItem("currentCart"))
       : []
   );
-
-  const [total, setTotal] = useState(0);
 
   const handleChange = (totalPrice, changedItem) => {
     let flag = false;
@@ -95,9 +94,11 @@ function ItemProvider({ children }) {
 
     return totalCart;
   };
+
   const handleAddToCart = (item) => {
     setLocalCart([...localCart, item]);
   };
+
   const handleLocalCart = (item) => {
     const currCart = JSON.parse(localStorage.getItem("currentCart"))
       ? JSON.parse(localStorage.getItem("currentCart"))

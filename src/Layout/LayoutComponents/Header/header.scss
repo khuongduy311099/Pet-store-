@@ -76,3 +76,10 @@
 .username {
   font-weight: 700;
 }
+
+.language-dropdown {
+  .ant-dropdown-menu {
+    padding: 5px !important;
+    border-radius: 10px;
+  }
+}

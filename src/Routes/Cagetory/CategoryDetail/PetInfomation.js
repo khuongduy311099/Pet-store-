@@ -3,7 +3,7 @@ import {t} from "i18next";
 import {useState} from "react";
 
 import "../category.scss";
-function PetInformation({information}) {
+function PetInformation({information, name}) {
     const [moreContent, setMoreContent] = useState(false);
     const handleShowMore = () => {
         setMoreContent(!moreContent);

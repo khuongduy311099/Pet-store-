@@ -37,8 +37,14 @@ function CategoryDetailItems({item}) {
             </Row>
             <Row>
                 <Col span={24}>
-                    {item?.information.length > 0 && (
+                    {item?.information.length > 0 ? (
                         <PetInformation information={item.information} />
+                    ) : (
+                        <Row
+                            align="center"
+                            justify="center"
+                            className="update-information"
+                        >{`We will update information about ${item.name} soon`}</Row>
                     )}
                 </Col>
             </Row>

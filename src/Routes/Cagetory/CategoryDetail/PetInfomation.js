@@ -1,8 +1,6 @@
-import {isContentEditable} from "@testing-library/user-event/dist/utils";
 import {Button, Col, Row} from "antd";
 import {t} from "i18next";
 import {useState} from "react";
-import {Link} from "react-router-dom";
 
 import "../category.scss";
 function PetInformation({information}) {
@@ -11,7 +9,7 @@ function PetInformation({information}) {
         setMoreContent(!moreContent);
     };
     return (
-        <div>
+        <div className="information-wrapper">
             <Row
                 style={{marginTop: "50px", marginLeft: "50px"}}
                 align="center"
@@ -21,6 +19,7 @@ function PetInformation({information}) {
                     <Row
                         id={information[0]?.title}
                         className="information-title"
+                        style={{marginTop: "20px"}}
                     >
                         <h2>{information[0]?.title}</h2>
                     </Row>
@@ -221,7 +220,7 @@ function PetInformation({information}) {
                         <Row>
                             <a
                                 className="appendix-inner"
-                                href={`${"#" + item.title}`}
+                                href={`#${item?.title}`}
                             >
                                 {i + 1}. {item.title}
                             </a>

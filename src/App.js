@@ -10,7 +10,7 @@ import RegisterLayout from "./Layout/RegisterLayout/RegisterLayout";
 import Cagetory from "./Routes/Cagetory";
 import CategoryDetailItem from "./Routes/Cagetory/CategoryDetail";
 import CategoryDetailItems from "./Routes/Cagetory/CategoryDetail";
-import {dogData} from "./Data";
+import {dogData, catData} from "./Data";
 import ProductItem from "./Layout/LayoutComponents/Product/product";
 function App() {
     const allDogListProduct = dogData.map((item) => item.listProduct);
@@ -23,10 +23,17 @@ function App() {
                     <Route path="/" element={<MainLayout />} />
                     <Route path="/login" element={<LoginLayout />} />
                     <Route path="/register" element={<RegisterLayout />} />
-                    <Route path="/dog-category" element={<Cagetory />}></Route>
+                    <Route
+                        path="/dog-category"
+                        element={<Cagetory listItem={dogData} />}
+                    ></Route>
+                    <Route
+                        path="/cat-category"
+                        element={<Cagetory listItem={catData} />}
+                    ></Route>
                     {dogData.map((item, i) => (
                         <Route
-                            path={`dog-category/${item.name}`}
+                            path={`dog-category/${encodeURI(item.name)}`}
                             element={<CategoryDetailItems item={item} />}
                         ></Route>
                     ))}

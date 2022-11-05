@@ -7,7 +7,7 @@ import i18n from "../../translation/i18n";
 import {useTranslation} from "react-i18next";
 // items Context
 import {useContext, useEffect} from "react";
-import {ItemContext} from "../../itemContext/itemContext";
+import {ItemContext} from "../../Context/cartContext";
 import Quantity from "./quantity";
 
 function TotalCartItem() {

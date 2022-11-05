@@ -3,15 +3,16 @@ import CagetoryItem from "./cagetoryItem";
 import {Select} from "antd";
 import {useState} from "react";
 
-import {dogData} from "../../Data";
+import {dogData, catData} from "../../Data";
 import {Link} from "react-router-dom";
 
 //icon
 import {ReloadOutline} from "@ant-design/icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faRotateBack, faRotateForward} from "@fortawesome/free-solid-svg-icons";
-function Cagetory({listItem = dogData}) {
-    const filterValue = {
+function Cagetory({listItem}) {
+    //Dog filter
+    const filterDogValue = {
         hair: "0",
         size: "0",
         purpose: "0",
@@ -20,72 +21,76 @@ function Cagetory({listItem = dogData}) {
         pattern: "0",
     };
     const [renderList, setRenderList] = useState(listItem);
-    const handleChangeHair = (value, option) => {
-        Object.keys(filterValue).map((item) => {
+    const handleChangeDogHair = (value, option) => {
+        Object.keys(filterDogValue).map((item) => {
             if (item === "hair") {
-                filterValue[item] = option.value;
+                filterDogValue[item] = option.value;
             }
         });
 
         setRenderList(
-            renderList.filter((item, index) => item.hair === filterValue.hair)
+            renderList.filter(
+                (item, index) => item.hair === filterDogValue.hair
+            )
         );
     };
-    const handleChangeSize = (value, option) => {
-        Object.keys(filterValue).map((item) => {
+    const handleChangeDogSize = (value, option) => {
+        Object.keys(filterDogValue).map((item) => {
             if (item === "size") {
-                filterValue[item] = option.value;
+                filterDogValue[item] = option.value;
             }
         });
         setRenderList(
-            renderList.filter((item, index) => item.size === filterValue.size)
+            renderList.filter(
+                (item, index) => item.size === filterDogValue.size
+            )
         );
     };
-    const handleChangePurpose = (value, option) => {
-        Object.keys(filterValue).map((item) => {
+    const handleChangeDogPurpose = (value, option) => {
+        Object.keys(filterDogValue).map((item) => {
             if (item === "purpose") {
-                filterValue[item] = option.value;
+                filterDogValue[item] = option.value;
             }
         });
         setRenderList(
             renderList.filter(
-                (item, index) => item.purpose === filterValue.purpose
+                (item, index) => item.purpose === filterDogValue.purpose
             )
         );
     };
-    const handleChangePopularity = (value, option) => {
-        Object.keys(filterValue).map((item) => {
+    const handleChangeDogPopularity = (value, option) => {
+        Object.keys(filterDogValue).map((item) => {
             if (item === "popularity") {
-                filterValue[item] = option.value;
+                filterDogValue[item] = option.value;
             }
         });
         setRenderList(
             renderList.filter(
-                (item, index) => item.popularity === filterValue.popularity
+                (item, index) => item.popularity === filterDogValue.popularity
             )
         );
     };
-    const handleChangeActivity = (value, option) => {
-        Object.keys(filterValue).map((item) => {
+    const handleChangeDogActivity = (value, option) => {
+        Object.keys(filterDogValue).map((item) => {
             if (item === "activity") {
-                filterValue[item] = option.value;
+                filterDogValue[item] = option.value;
             }
         });
         setRenderList(
             renderList.filter(
-                (item, index) => item.activity === filterValue.activity
+                (item, index) => item.activity === filterDogValue.activity
             )
         );
     };
-    const handleChangePattern = (value, option) => {
-        Object.keys(filterValue).map((item) => {
+    const handleChangeDogPattern = (value, option) => {
+        Object.keys(filterDogValue).map((item) => {
             if (item === "pattern") {
-                filterValue[item] = option.value;
+                filterDogValue[item] = option.value;
             }
         });
         setRenderList(
             renderList.filter(
-                (item, index) => item.pattern === filterValue.pattern
+                (item, index) => item.pattern === filterDogValue.pattern
             )
         );
     };
@@ -93,7 +98,77 @@ function Cagetory({listItem = dogData}) {
     const handleResetFilter = () => {
         setRenderList(listItem);
     };
-    return (
+
+    //Cat filter
+
+    const filterCatValue = {
+        hair: "0",
+        color: "0",
+        popularity: "0",
+        hairFall: "0",
+        outLook: "0",
+    };
+    const handleChangeCatHair = (value, option) => {
+        Object.keys(filterCatValue).map((item) => {
+            if (item === "hair") {
+                filterCatValue[item] = option.value;
+            }
+        });
+        setRenderList(
+            renderList.filter(
+                (item, index) => item.hair === filterCatValue.hair
+            )
+        );
+    };
+    const handleChangeCatColor = (value, option) => {
+        Object.keys(filterCatValue).map((item) => {
+            if (item === "color") {
+                filterCatValue[item] = option.value;
+            }
+        });
+        setRenderList(
+            renderList.filter(
+                (item, index) => item.color === filterCatValue.color
+            )
+        );
+    };
+    const handleChangeCatPopularity = (value, option) => {
+        Object.keys(filterCatValue).map((item) => {
+            if (item === "popularity") {
+                filterCatValue[item] = option.value;
+            }
+        });
+        setRenderList(
+            renderList.filter(
+                (item, index) => item.popularity === filterCatValue.popularity
+            )
+        );
+    };
+    const handleChangeCatHairFall = (value, option) => {
+        Object.keys(filterCatValue).map((item) => {
+            if (item === "hairFall") {
+                filterCatValue[item] = option.value;
+            }
+        });
+        setRenderList(
+            renderList.filter(
+                (item, index) => item.hairFall === filterCatValue.hairFall
+            )
+        );
+    };
+    const handleChangeCatOutLook = (value, option) => {
+        Object.keys(filterCatValue).map((item) => {
+            if (item === "outLook") {
+                filterCatValue[item] = option.value;
+            }
+        });
+        setRenderList(
+            renderList.filter(
+                (item, index) => item.outLook === filterCatValue.outLook
+            )
+        );
+    };
+    return listItem === dogData ? ( // Dog category
         <Col span={24}>
             <Row align="center" justify="center">
                 <Col span={18} className="filter-box-wrapper">
@@ -107,7 +182,7 @@ function Cagetory({listItem = dogData}) {
                                     label: "Chọn Kiểu Lông",
                                 }}
                                 className="filter-box-select"
-                                onChange={handleChangeHair}
+                                onChange={handleChangeDogHair}
                                 options={[
                                     {
                                         value: "Long",
@@ -132,7 +207,7 @@ function Cagetory({listItem = dogData}) {
                                     label: "Chọn Kích Thước",
                                 }}
                                 className="filter-box-select"
-                                onChange={handleChangeSize}
+                                onChange={handleChangeDogSize}
                                 options={[
                                     {
                                         value: "Small",
@@ -157,7 +232,7 @@ function Cagetory({listItem = dogData}) {
                                     label: "Chọn Mục Đích Nuôi",
                                 }}
                                 className="filter-box-select"
-                                onChange={handleChangePurpose}
+                                onChange={handleChangeDogPurpose}
                                 options={[
                                     {
                                         value: "Make friends",
@@ -180,7 +255,7 @@ function Cagetory({listItem = dogData}) {
                                     label: "Chọn Độ Phổ Biến",
                                 }}
                                 className="filter-box-select"
-                                onChange={handleChangePopularity}
+                                onChange={handleChangeDogPopularity}
                                 options={[
                                     {
                                         value: "Hot",
@@ -205,7 +280,7 @@ function Cagetory({listItem = dogData}) {
                                     label: "Chọn Nhu Cầu Vận Động",
                                 }}
                                 className="filter-box-select"
-                                onChange={handleChangeActivity}
+                                onChange={handleChangeDogActivity}
                                 options={[
                                     {
                                         value: "Low",
@@ -230,7 +305,7 @@ function Cagetory({listItem = dogData}) {
                                     label: "Chọn Nhóm Chó",
                                 }}
                                 className="filter-box-select"
-                                onChange={handleChangePattern}
+                                onChange={handleChangeDogPattern}
                                 options={[
                                     {
                                         value: "Bull Dog",
@@ -287,6 +362,175 @@ function Cagetory({listItem = dogData}) {
                                     {
                                         value: "Family Dog",
                                         label: "Family Dog",
+                                    },
+                                ]}
+                            />
+                        </Col>
+                    </Row>
+                    <Button
+                        className="btn-reset-filter"
+                        type="primary"
+                        shape="circle"
+                        size="small"
+                        onClick={handleResetFilter}
+                    >
+                        <FontAwesomeIcon icon={faRotateForward} />
+                    </Button>
+                </Col>
+            </Row>
+            <Row
+                style={{
+                    alignItem: "center",
+                    display: "flex",
+                    justifyContent: "center",
+                }}
+            ></Row>
+            <Row
+                style={{
+                    alignItem: "center",
+                    display: "flex",
+                    justifyContent: "center",
+                    marginTop: "1%",
+                }}
+            >
+                <Row align="center" style={{width: "86%", marginTop: "10px"}}>
+                    {renderList.map((item) => (
+                        <CagetoryItem item={item} />
+                    ))}
+                </Row>
+            </Row>
+        </Col>
+    ) : (
+        // Cat category list
+        <Col span={24}>
+            <Row align="center" justify="center">
+                <Col span={18} className="filter-box-wrapper">
+                    <Row
+                        style={{marginTop: "26px"}}
+                        align="center"
+                        justify="center"
+                    >
+                        <Col className="select-wrapper" span={8}>
+                            <Select
+                                bordered
+                                labelInValue
+                                defaultValue={{
+                                    value: "0",
+                                    label: "Chọn Kiểu Lông",
+                                }}
+                                className="filter-box-select"
+                                onChange={handleChangeCatHair}
+                                options={[
+                                    {
+                                        value: "Long",
+                                        label: "Dài",
+                                    },
+                                    {
+                                        value: "Short",
+                                        label: "Ngắn",
+                                    },
+                                    {
+                                        value: "Medium",
+                                        label: "Trung bình",
+                                    },
+                                ]}
+                            />
+                        </Col>
+
+                        <Col className="select-wrapper" span={8}>
+                            <Select
+                                labelInValue
+                                defaultValue={{
+                                    value: "0",
+                                    label: "Chọn Màu Sắc",
+                                }}
+                                className="filter-box-select"
+                                onChange={handleChangeCatColor}
+                                options={[
+                                    {
+                                        value: "Single",
+                                        label: "Một Màu",
+                                    },
+                                    {
+                                        value: "Multi",
+                                        label: "Nhiều màu",
+                                    },
+                                ]}
+                            />
+                        </Col>
+                    </Row>
+                    <Row style={{marginBottom: "10px"}}>
+                        <Col className="select-wrapper" span={8}>
+                            <Select
+                                labelInValue
+                                defaultValue={{
+                                    value: "0",
+                                    label: "Chọn Độ Phổ Biến",
+                                }}
+                                className="filter-box-select"
+                                onChange={handleChangeCatPopularity}
+                                options={[
+                                    {
+                                        value: "Hot",
+                                        label: "Hot",
+                                    },
+                                    {
+                                        value: "Medium",
+                                        label: "Trung bình",
+                                    },
+                                    {
+                                        value: "Rare",
+                                        label: "Hiếm",
+                                    },
+                                ]}
+                            />
+                        </Col>
+                        <Col className="select-wrapper" span={8}>
+                            <Select
+                                labelInValue
+                                defaultValue={{
+                                    value: "0",
+                                    label: "Chọn Mức Độ Rụng Lông",
+                                }}
+                                className="filter-box-select"
+                                onChange={handleChangeCatHairFall}
+                                options={[
+                                    {
+                                        value: "Low",
+                                        label: "Thấp",
+                                    },
+                                    {
+                                        value: "Medium",
+                                        label: "Trung bình",
+                                    },
+                                    {
+                                        value: "High",
+                                        label: "Cao",
+                                    },
+                                ]}
+                            />
+                        </Col>
+                        <Col className="select-wrapper" span={8}>
+                            <Select
+                                labelInValue
+                                defaultValue={{
+                                    value: "0",
+                                    label: "Chọn Ngoại Hình",
+                                }}
+                                className="filter-box-select"
+                                onChange={handleChangeCatOutLook}
+                                options={[
+                                    {
+                                        value: "Luxury",
+                                        label: "Quý Tộc",
+                                    },
+                                    {
+                                        value: "Cute",
+                                        label: "Đáng Yêu",
+                                    },
+                                    {
+                                        value: "Unique",
+                                        label: "Độc Lạ",
                                     },
                                 ]}
                             />

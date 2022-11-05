@@ -54,7 +54,7 @@ function ItemProvider({children}) {
             : []
     );
 
-  const [total, setTotal] = useState(0);
+    const [total, setTotal] = useState(0);
 
     const handleChange = (totalPrice, changedItem) => {
         let flag = false;
@@ -86,73 +86,75 @@ function ItemProvider({children}) {
         );
     };
 
-  const totalCart = (localCart) => {
-    let totalCart = 0;
-    localCart &&
-      localCart.map((item) => {
-        totalCart += item.quantity ? item.quantity * item.price : item.price;
-        return totalCart;
-    };
-    const handleAddToCart = (item) => {
-        setLocalCart([...localCart, item]);
-    };
-    const handleLocalCart = (item) => {
-        let currCart = !!JSON.parse(localStorage.getItem("currentCart"))
-            ? JSON.parse(localStorage.getItem("currentCart"))
-            : [];
-        if (currCart.length >= 1) {
-            let flag = false;
-            currCart.map((currCartItem, index) => {
-                if (currCartItem.name === item.name) {
-                    flag = true;
-                }
-                return item;
+    const totalCart = (localCart) => {
+        let totalCart = 0;
+        localCart &&
+            localCart.map((item) => {
+                totalCart += item.quantity
+                    ? item.quantity * item.price
+                    : item.price;
+                return totalCart;
             });
-            if (!flag) currCart.push(item);
-            localStorage.setItem("currentCart", JSON.stringify(currCart));
-        } else if (currCart.length === 0) {
-            localStorage.setItem("currentCart", JSON.stringify([item]));
-        }
-        localStorage.setItem(
-            "currentCartQuantity",
-            parseInt(
-                JSON.stringify(
-                    JSON.parse(localStorage.getItem("currentCart")).reduce(
-                        (prev, curr) => prev + curr.quantity,
-                        0
+        const handleAddToCart = (item) => {
+            setLocalCart([...localCart, item]);
+        };
+        const handleLocalCart = (item) => {
+            let currCart = !!JSON.parse(localStorage.getItem("currentCart"))
+                ? JSON.parse(localStorage.getItem("currentCart"))
+                : [];
+            if (currCart.length >= 1) {
+                let flag = false;
+                currCart.map((currCartItem, index) => {
+                    if (currCartItem.name === item.name) {
+                        flag = true;
+                    }
+                    return item;
+                });
+                if (!flag) currCart.push(item);
+                localStorage.setItem("currentCart", JSON.stringify(currCart));
+            } else if (currCart.length === 0) {
+                localStorage.setItem("currentCart", JSON.stringify([item]));
+            }
+            localStorage.setItem(
+                "currentCartQuantity",
+                parseInt(
+                    JSON.stringify(
+                        JSON.parse(localStorage.getItem("currentCart")).reduce(
+                            (prev, curr) => prev + curr.quantity,
+                            0
+                        )
                     )
                 )
-            )
-        );
-        setCurrentQuantity(
-            JSON.parse(localStorage.getItem("currentCartQuantity"))
+            );
+            setCurrentQuantity(
+                JSON.parse(localStorage.getItem("currentCartQuantity"))
+            );
+        };
+
+        const handleProductLayout = (name) => {
+            setCurrentItem(items.filter((item) => item.name === name));
+        };
+
+        const currentItemValue = {
+            totalCart,
+            handleChange,
+            localCart,
+            setLocalCart,
+            total,
+            setTotal,
+            currentQuantity,
+            handleLocalCart,
+            listItem: items,
+            currentItem,
+            handleProductLayout,
+            handleAddToCart,
+        };
+
+        return (
+            <ItemContext.Provider value={currentItemValue}>
+                {children}
+            </ItemContext.Provider>
         );
     };
-
-  const handleProductLayout = (name) => {
-    setCurrentItem(items.filter((item) => item.name === name));
-  };
-
-  const currentItemValue = {
-    totalCart,
-    handleChange,
-    localCart,
-    setLocalCart,
-    total,
-    setTotal,
-    currentQuantity,
-    handleLocalCart,
-    listItem: items,
-    currentItem,
-    handleProductLayout,
-    handleAddToCart,
-  };
-
-  return (
-    <ItemContext.Provider value={currentItemValue}>
-      {children}
-    </ItemContext.Provider>
-  );
 }
-
-export { ItemContext, ItemProvider };
+export {ItemContext, ItemProvider};

@@ -4,6 +4,8 @@
     justify-content: space-between;
     border-radius: 10px;
     box-shadow: 0 3px 13px rgb(0 0 0 / 16%);
+    height: 130px;
+    vertical-align: text-bottom;
 }
 
 .select-wrapper {
@@ -13,14 +15,11 @@
 }
 
 .filter-box-select {
-    width: 60%;
-    margin: 10px 0;
     width: 80%;
-    height: 42px;
     text-align: center;
-    font-size: 16px;
+    margin-bottom: 10px !important;
+    font-size: 17px !important;
     font-weight: 500;
-    border-radius: 10px;
 }
 
 .item-img {
@@ -52,6 +51,7 @@
     border-bottom: 5px solid white;
     transition: all 0.5s;
     padding-bottom: 10px;
+    border-radius: 5px;
     &:hover {
         border-bottom: 5px solid red;
         cursor: pointer;
@@ -59,7 +59,7 @@
 }
 
 .category-img {
-    width: 300px;
+    width: 100%;
     height: 100%;
 }
 
@@ -132,8 +132,14 @@
 .breakpoint-show-content::after {
     background: linear-gradient(0deg, #fff, #fff 50%, hsla(0deg, 0%, 100%, 0));
     content: "";
-    height: 64px;
+    height: 370px;
     position: absolute;
-    top: 122px;
+    top: -4%;
     width: 100%;
+}
+
+.btn-reset-filter {
+    position: absolute !important;
+    top: 78.5%;
+    left: 97.8%;
 }

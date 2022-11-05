@@ -1,181 +1,315 @@
-import {Col, Row} from "antd";
+import {Button, Col, Row} from "antd";
 import CagetoryItem from "./cagetoryItem";
-import FilterBox from "./filterBox";
+import {Select} from "antd";
+import {useState} from "react";
 
-function Cagetory() {
-    const listItem = [
-        {
-            name: "Pug",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Pug.jpg",
-        },
-        {
-            name: "Afghan Hound",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Afghan-Hound.jpg",
-        },
-        {
-            name: "Akita",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Akita.jpg",
-        },
-        {
-            name: "Alabai",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Alabai.jpg",
-        },
-        {
-            name: "Alaska",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Alaska.jpg",
-        },
-        {
-            name: "American Bully",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/American-Bully.jpg",
-        },
-        {
-            name: "Australian Shepherd",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Australian-Shepherd.jpg",
-        },
-        {
-            name: "Bắc Hà",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Bac-Ha.jpg",
-        },
-        {
-            name: "Bắc Kinh",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Bac-Kinh.jpg",
-        },
-        {
-            name: "Basenji",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Basenji.jpg",
-        },
-        {
-            name: "Basset Hound",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Basset-Hound.jpg",
-        },
-        {
-            name: "Beagle",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Beagle.jpg",
-        },
-        {
-            name: "German Becgie",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Becgie-Duc.jpg",
-        },
-        {
-            name: "Malinos Becgie",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Becgie-Ha-Lan.jpg",
-        },
-        {
-            name: "Bichon Frise",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Bichon.jpg",
-        },
-        {
-            name: "Border Collie",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Border-Collie.jpg",
-        },
-        {
-            name: "Boston Terrier",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Boston-Terrier.jpg",
-        },
-        {
-            name: "Boxer",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Boxer.png",
-        },
-        {
-            name: "English Bull Dog",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Bull-Anh.jpg",
-        },
-        {
-            name: "French Bull Dog",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Bull-Phap.jpg",
-        },
-        {
-            name: "Bull Terrier",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Bull-Terrier.jpg",
-        },
-        {
-            name: "Pug",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Pug.jpg",
-        },
-        {
-            name: "Caucasian Shepherd",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Caucasian-Shepherd.jpg",
-        },
-        {
-            name: "Cavalier King Charles Spaniel",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Cavalier-King-Charles-Spaniel.jpg",
-        },
-        {
-            name: "Chihuahua",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Chihuahua.jpg",
-        },
-        {
-            name: "Chinese Crested",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Chinese-Crested.jpg",
-        },
-        {
-            name: "Chow Chow",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Chow-Chow.jpg",
-        },
-        {
-            name: "Cocker Spaniel",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Cocker-Spaniel.jpg",
-        },
-        {
-            name: "Pembroke Welsh Corgi",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Pembroke-Welsh-Corgi.jpg",
-        },
-        {
-            name: "Dalmatian",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Dalmatian.jpg",
-        },
-        {
-            name: "Doberman",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Doberman.jpg",
-        },
-        {
-            name: "German Pinscher",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/German-Pinscher.jpg",
-        },
-        {
-            name: "Golden Retriever",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Golden-Retriever.jpg",
-        },
-        {
-            name: "Great Dane",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Great-Dane.jpg",
-        },
-        {
-            name: "H'mong Cộc",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Hmong.jpg",
-        },
-        {
-            name: "Husky",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Husky.jpg",
-        },
-        {
-            name: "Icelandic Sheepdog",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Icelandic-Sheepdog.jpg",
-        },
-        {
-            name: "Irish Setter",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Irish-Setter.jpg",
-        },
-        {
-            name: "Samoyed",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Samoyed.jpg",
-        },
-        {
-            name: "Shiba",
-            img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/Shiba.jpg",
-        },
-    ];
+import {dogData} from "../../Data";
+import {Link} from "react-router-dom";
+
+//icon
+import {ReloadOutline} from "@ant-design/icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faRotateBack, faRotateForward} from "@fortawesome/free-solid-svg-icons";
+function Cagetory({listItem = dogData}) {
+    const filterValue = {
+        hair: "0",
+        size: "0",
+        purpose: "0",
+        popularity: "0",
+        activity: "0",
+        pattern: "0",
+    };
+    const [renderList, setRenderList] = useState(listItem);
+    const handleChangeHair = (value, option) => {
+        Object.keys(filterValue).map((item) => {
+            if (item === "hair") {
+                filterValue[item] = option.value;
+            }
+        });
+
+        setRenderList(
+            renderList.filter((item, index) => item.hair === filterValue.hair)
+        );
+    };
+    const handleChangeSize = (value, option) => {
+        Object.keys(filterValue).map((item) => {
+            if (item === "size") {
+                filterValue[item] = option.value;
+            }
+        });
+        setRenderList(
+            renderList.filter((item, index) => item.size === filterValue.size)
+        );
+    };
+    const handleChangePurpose = (value, option) => {
+        Object.keys(filterValue).map((item) => {
+            if (item === "purpose") {
+                filterValue[item] = option.value;
+            }
+        });
+        setRenderList(
+            renderList.filter(
+                (item, index) => item.purpose === filterValue.purpose
+            )
+        );
+    };
+    const handleChangePopularity = (value, option) => {
+        Object.keys(filterValue).map((item) => {
+            if (item === "popularity") {
+                filterValue[item] = option.value;
+            }
+        });
+        setRenderList(
+            renderList.filter(
+                (item, index) => item.popularity === filterValue.popularity
+            )
+        );
+    };
+    const handleChangeActivity = (value, option) => {
+        Object.keys(filterValue).map((item) => {
+            if (item === "activity") {
+                filterValue[item] = option.value;
+            }
+        });
+        setRenderList(
+            renderList.filter(
+                (item, index) => item.activity === filterValue.activity
+            )
+        );
+    };
+    const handleChangePattern = (value, option) => {
+        Object.keys(filterValue).map((item) => {
+            if (item === "pattern") {
+                filterValue[item] = option.value;
+            }
+        });
+        setRenderList(
+            renderList.filter(
+                (item, index) => item.pattern === filterValue.pattern
+            )
+        );
+    };
+
+    const handleResetFilter = () => {
+        setRenderList(listItem);
+    };
     return (
         <Col span={24}>
+            <Row align="center" justify="center">
+                <Col span={18} className="filter-box-wrapper">
+                    <Row style={{marginTop: "26px"}}>
+                        <Col className="select-wrapper" span={8}>
+                            <Select
+                                bordered
+                                labelInValue
+                                defaultValue={{
+                                    value: "0",
+                                    label: "Chọn Kiểu Lông",
+                                }}
+                                className="filter-box-select"
+                                onChange={handleChangeHair}
+                                options={[
+                                    {
+                                        value: "Long",
+                                        label: "Dài",
+                                    },
+                                    {
+                                        value: "Short",
+                                        label: "Ngắn",
+                                    },
+                                    {
+                                        value: "Medium",
+                                        label: "Trung bình",
+                                    },
+                                ]}
+                            />
+                        </Col>
+                        <Col className="select-wrapper" span={8}>
+                            <Select
+                                labelInValue
+                                defaultValue={{
+                                    value: "0",
+                                    label: "Chọn Kích Thước",
+                                }}
+                                className="filter-box-select"
+                                onChange={handleChangeSize}
+                                options={[
+                                    {
+                                        value: "Small",
+                                        label: "Nhỏ",
+                                    },
+                                    {
+                                        value: "Medium",
+                                        label: "Trung bình",
+                                    },
+                                    {
+                                        value: "Big",
+                                        label: "Lớn",
+                                    },
+                                ]}
+                            />
+                        </Col>
+                        <Col className="select-wrapper" span={8}>
+                            <Select
+                                labelInValue
+                                defaultValue={{
+                                    value: "0",
+                                    label: "Chọn Mục Đích Nuôi",
+                                }}
+                                className="filter-box-select"
+                                onChange={handleChangePurpose}
+                                options={[
+                                    {
+                                        value: "Make friends",
+                                        label: "Làm cảnh và bầu bạn",
+                                    },
+                                    {
+                                        value: "Guardian",
+                                        label: "Canh gác và bảo vệ",
+                                    },
+                                ]}
+                            />
+                        </Col>
+                    </Row>
+                    <Row style={{marginBottom: "10px"}}>
+                        <Col className="select-wrapper" span={8}>
+                            <Select
+                                labelInValue
+                                defaultValue={{
+                                    value: "0",
+                                    label: "Chọn Độ Phổ Biến",
+                                }}
+                                className="filter-box-select"
+                                onChange={handleChangePopularity}
+                                options={[
+                                    {
+                                        value: "Hot",
+                                        label: "Hot",
+                                    },
+                                    {
+                                        value: "Medium",
+                                        label: "Trung bình",
+                                    },
+                                    {
+                                        value: "Rare",
+                                        label: "Hiếm",
+                                    },
+                                ]}
+                            />
+                        </Col>
+                        <Col className="select-wrapper" span={8}>
+                            <Select
+                                labelInValue
+                                defaultValue={{
+                                    value: "0",
+                                    label: "Chọn Nhu Cầu Vận Động",
+                                }}
+                                className="filter-box-select"
+                                onChange={handleChangeActivity}
+                                options={[
+                                    {
+                                        value: "Low",
+                                        label: "Thấp",
+                                    },
+                                    {
+                                        value: "Medium",
+                                        label: "Trung bình",
+                                    },
+                                    {
+                                        value: "High",
+                                        label: "Cao",
+                                    },
+                                ]}
+                            />
+                        </Col>
+                        <Col className="select-wrapper" span={8}>
+                            <Select
+                                labelInValue
+                                defaultValue={{
+                                    value: "0",
+                                    label: "Chọn Nhóm Chó",
+                                }}
+                                className="filter-box-select"
+                                onChange={handleChangePattern}
+                                options={[
+                                    {
+                                        value: "Bull Dog",
+                                        label: "Bull Dog",
+                                    },
+                                    {
+                                        value: "Long Hair Dog",
+                                        label: "Long Hair Dog",
+                                    },
+                                    {
+                                        value: "Japanese Dog",
+                                        label: "Japanese Dog",
+                                    },
+                                    {
+                                        value: "Sheep Dog",
+                                        label: "Sheep Dog",
+                                    },
+                                    {
+                                        value: "Sled Dog",
+                                        label: "Sled Dog",
+                                    },
+                                    {
+                                        value: "Terrier",
+                                        label: "Terrier",
+                                    },
+                                    {
+                                        value: "Shepherd",
+                                        label: "Shepherd",
+                                    },
+                                    {
+                                        value: "Vietnamese Dog",
+                                        label: "Vietnamese Dog",
+                                    },
+                                    {
+                                        value: "Chinese Dog",
+                                        label: "Chinese Dog",
+                                    },
+                                    {
+                                        value: "Hungting Dog",
+                                        label: "Hungting Dog",
+                                    },
+                                    {
+                                        value: "Hound",
+                                        label: "Hound",
+                                    },
+                                    {
+                                        value: "Becgie",
+                                        label: "Becgie",
+                                    },
+                                    {
+                                        value: "Bichon",
+                                        label: "Bichon",
+                                    },
+                                    {
+                                        value: "Family Dog",
+                                        label: "Family Dog",
+                                    },
+                                ]}
+                            />
+                        </Col>
+                    </Row>
+                    <Button
+                        className="btn-reset-filter"
+                        type="primary"
+                        shape="circle"
+                        size="small"
+                        onClick={handleResetFilter}
+                    >
+                        <FontAwesomeIcon icon={faRotateForward} />
+                    </Button>
+                </Col>
+            </Row>
             <Row
                 style={{
                     alignItem: "center",
                     display: "flex",
                     justifyContent: "center",
                 }}
-            >
-                <FilterBox />
-            </Row>
+            ></Row>
             <Row
                 style={{
                     alignItem: "center",
@@ -185,7 +319,7 @@ function Cagetory() {
                 }}
             >
                 <Row align="center" style={{width: "86%", marginTop: "10px"}}>
-                    {listItem.map((item) => (
+                    {renderList.map((item) => (
                         <CagetoryItem item={item} />
                     ))}
                 </Row>

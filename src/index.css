@@ -13,6 +13,7 @@ body {
 
 a {
   transition: none !important;
+  text-decoration: none !important;
 }
 
 li {

@@ -17,11 +17,14 @@ function ProductItem({item}) {
         setCurrentItemImage(listImg[i]);
     };
     return (
-        <Row align="center" justify="center">
+        <Row align="center" justify="center" style={{marginTop: "5%"}}>
             <Col
-                span={22}
-                offset={2}
-                style={{display: "flex", maxWidth: "1500px"}}
+                span={24}
+                style={{
+                    display: "flex",
+                    maxWidth: "1500px",
+                    marginLeft: "4%",
+                }}
             >
                 <Col style={{alignItems: "right"}} span={12}>
                     <Row>
@@ -64,7 +67,7 @@ function ProductItem({item}) {
                         })}
                     </Row>
                 </Col>
-                <Col style={{width: "700px"}} span={12}>
+                <Col style={{width: "700px", marginTop: "3%"}} span={12}>
                     <Row className="product-title">
                         <h1>{t(item.name)}</h1>
                     </Row>

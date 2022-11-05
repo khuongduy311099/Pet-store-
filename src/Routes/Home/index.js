@@ -23,8 +23,9 @@ import ContentContainer from "../../Layout/LayoutComponents/ContentContainer/foo
 import "./index.scss";
 import BannerSlider from "../../Components/BannerSlider";
 import DogTab from "../../Components/DogTab";
+import {Link} from "react-router-dom";
 const {Header, Footer, Sider, Content} = Layout;
-const {Text, Link, Title} = Typography;
+const {Text, Title} = Typography;
 
 const slides = [
     {
@@ -87,29 +88,35 @@ function MainLayout() {
                                 dataSource={[
                                     {
                                         title: "GIỐNG CHÓ CẢNH",
+                                        link: "dog-category",
                                         thumb: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/cho-canh-1.png",
                                     },
                                     {
                                         title: "GIỐNG MÈO CẢNH",
+                                        link: "cat-category",
+
                                         thumb: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/meo-canh-1.png",
                                     },
                                     {
                                         title: "SPA AND GROOMING",
+                                        link: "services",
                                         thumb: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/spa-cho-meo-1.png",
                                     },
                                 ]}
                                 renderItem={(item) => (
-                                    <List.Item>
-                                        <Space size={"middle"}>
-                                            <Avatar
-                                                size={60}
-                                                src={item.thumb}
-                                            />
-                                            <Title level={5}>
-                                                {item?.title}
-                                            </Title>
-                                        </Space>
-                                    </List.Item>
+                                    <Link to={`/${item?.link}`}>
+                                        <List.Item>
+                                            <Space size={"middle"}>
+                                                <Avatar
+                                                    size={60}
+                                                    src={item.thumb}
+                                                />
+                                                <Title level={5}>
+                                                    {item?.title}
+                                                </Title>
+                                            </Space>
+                                        </List.Item>
+                                    </Link>
                                 )}
                             />
                         </Col>

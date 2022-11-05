@@ -14,6 +14,7 @@ import {dogData, catData} from "./Data";
 import ProductItem from "./Layout/LayoutComponents/Product/product";
 function App() {
     const allDogListProduct = dogData.map((item) => item.listProduct);
+    const allCatListProduct = catData.map((item) => item.listProduct);
 
     return (
         <Layout>
@@ -21,7 +22,7 @@ function App() {
             <Content
                 style={{
                     padding: "50px 50px",
-                    backgroundColor: "#f2f2f2",
+                    backgroundColor: "white",
                 }}
             >
                 <Routes>
@@ -38,12 +39,26 @@ function App() {
                     ></Route>
                     {dogData.map((item, i) => (
                         <Route
-                            path={`dog-category/${encodeURI(item.name)}`}
+                            path={`/${encodeURI(item.name)}`}
                             element={<CategoryDetailItems item={item} />}
                         ></Route>
                     ))}
 
                     {allDogListProduct?.map((item) =>
+                        item?.map((product) => (
+                            <Route
+                                path={`/product/${product.name}`}
+                                element={<ProductItem item={product} />}
+                            ></Route>
+                        ))
+                    )}
+                    {catData.map((item, i) => (
+                        <Route
+                            path={`/${encodeURI(item.name)}`}
+                            element={<CategoryDetailItems item={item} />}
+                        ></Route>
+                    ))}
+                    {allCatListProduct?.map((item) =>
                         item?.map((product) => (
                             <Route
                                 path={`/product/${product.name}`}

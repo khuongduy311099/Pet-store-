@@ -5,7 +5,7 @@ import PetInformation from "./PetInfomation";
 
 function CategoryDetailItems({item}) {
     return (
-        <Col span={24}>
+        <Col span={24} style={{marginTop: "80px"}}>
             <Row
                 align="center"
                 justify="center"
@@ -14,12 +14,16 @@ function CategoryDetailItems({item}) {
                     paddingBottom: "20px",
                 }}
             >
-                {!!item.listProduct ? (
-                    item.listProduct.map((item) => (
-                        <CategoryDetailItem item={item} />
-                    ))
+                {!!item?.listProduct ? (
+                    item?.listProduct?.map((item) => {
+                        if (!!item) {
+                            return <CategoryDetailItem item={item} />;
+                        }
+                    })
                 ) : (
                     <Row
+                        align="center"
+                        justify="center"
                         style={{
                             height: "200px",
                             fontSize: "30px",
@@ -31,7 +35,13 @@ function CategoryDetailItems({item}) {
                     </Row>
                 )}
             </Row>
-            <PetInformation information={item.information} />
+            <Row>
+                <Col span={24}>
+                    {item?.information.length > 0 && (
+                        <PetInformation information={item.information} />
+                    )}
+                </Col>
+            </Row>
         </Col>
     );
 }

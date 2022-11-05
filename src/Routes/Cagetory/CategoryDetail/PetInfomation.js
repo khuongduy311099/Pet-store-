@@ -34,14 +34,14 @@ function PetInformation({information}) {
                     ) : (
                         <div style={{display: "none"}}></div>
                     )}
-                    {!!information[0]?.content.desc2 ? (
+                    {!!information[0]?.content.desc2 && moreContent ? (
                         <Row className="information-desc">
                             {information[0]?.content?.desc2}
                         </Row>
                     ) : (
                         <div style={{display: "none"}}></div>
                     )}
-                    {!!information[0]?.content.desc3 ? (
+                    {!!information[0]?.content.desc3 && moreContent ? (
                         <Row className="information-desc">
                             {information[0]?.content?.desc3}
                         </Row>

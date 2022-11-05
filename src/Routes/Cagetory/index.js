@@ -172,7 +172,7 @@ function Cagetory({listItem}) {
         <Col span={24}>
             <Row align="center" justify="center">
                 <Col span={18} className="filter-box-wrapper">
-                    <Row style={{marginTop: "26px"}}>
+                    <Row style={{marginTop: "22px"}}>
                         <Col className="select-wrapper" span={8}>
                             <Select
                                 bordered
@@ -406,7 +406,7 @@ function Cagetory({listItem}) {
             <Row align="center" justify="center">
                 <Col span={18} className="filter-box-wrapper">
                     <Row
-                        style={{marginTop: "26px"}}
+                        style={{marginTop: "22px"}}
                         align="center"
                         justify="center"
                     >

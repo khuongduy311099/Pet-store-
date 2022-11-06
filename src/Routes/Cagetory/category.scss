@@ -1,99 +1,99 @@
 .filter-box-wrapper {
-  width: 1400px;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 10px;
-  box-shadow: 0 3px 13px rgb(0 0 0 / 16%);
-  height: 150px;
-  vertical-align: text-bottom;
+    width: 1400px;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    box-shadow: 0 3px 13px rgb(0 0 0 / 16%);
+    height: 150px;
+    vertical-align: text-bottom;
 }
 
 .select-wrapper {
-  align-items: center;
-  justify-content: center;
-  display: flex !important;
-  padding: 4px;
+    align-items: center;
+    justify-content: center;
+    display: flex !important;
+    padding: 4px;
 }
 
 .select-wrapper .ant-select .ant-select-selector {
-  border-radius: 5px !important;
-  height: 40px !important;
+    border-radius: 5px !important;
+    height: 40px !important;
 }
 
 .filter-box-select {
-  width: 90%;
-  text-align: center;
-  margin-bottom: 10px !important;
-  font-size: 17px !important;
-  font-weight: 500;
+    width: 90%;
+    text-align: center;
+    margin-bottom: 10px !important;
+    font-size: 17px !important;
+    font-weight: 500;
 }
 
 .item-img {
-  width: 80%;
-  height: 100%;
-  padding: 10px;
+    width: 80%;
+    height: 100%;
+    padding: 10px;
 }
 
 .category-item-wrapper {
-  display: block;
-  padding-top: 25px;
-  transition: all 0.5s;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  border-bottom: 5px solid white;
-  background-color: white;
-  &:hover {
-    box-shadow: 0 5px 5px 0 rgb(219, 216, 216);
-    border-bottom: 5px solid rgb(167, 64, 64);
-    cursor: pointer;
-  }
+    display: block;
+    padding-top: 25px;
+    transition: all 0.5s;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border-bottom: 5px solid white;
+    background-color: white;
+    &:hover {
+        box-shadow: 0 5px 5px 0 rgb(219, 216, 216);
+        border-bottom: 5px solid rgb(167, 64, 64);
+        cursor: pointer;
+    }
 }
 
 .category-item-name {
-  text-align: center;
-  font-weight: 400;
-  font-size: 15px;
-  color: black;
-  margin: 10px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 15px;
+    color: black;
+    margin: 10px;
 }
 
 //detail category list item
 .category-detail-item-wrapper {
-  border-bottom: 5px solid white;
-  transition: all 0.5s;
-  padding-bottom: 10px;
-  border-radius: 5px;
-  width: 100%;
-  max-height: fit-content;
-  min-width: 200px;
-  &:hover {
-    border-bottom: 5px solid red;
-    cursor: pointer;
-  }
+    border-bottom: 5px solid white;
+    transition: all 0.5s;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    width: 100%;
+    max-height: fit-content;
+    min-width: 200px;
+    &:hover {
+        border-bottom: 5px solid red;
+        cursor: pointer;
+    }
 }
 
 .category-img {
-  width: 100%;
-  height: 100%;
-  max-height: 330px;
-  max-width: 330px;
-  object-fit: contain;
+    width: 100%;
+    height: 100%;
+    max-height: 330px;
+    max-width: 330px;
+    object-fit: contain;
 }
 
 .category-detail-name {
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 1.5;
-  margin-top: 0;
-  text-align: left;
-  color: black !important;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 0;
+    text-align: left;
+    color: black !important;
 }
 
 .category-detail-price {
-  font-size: 20px;
-  font-weight: 700;
-  text-align: left;
-  color: black !important;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+    color: black !important;
 }
 
 //pet information
@@ -105,69 +105,69 @@
 }
 
 .information-desc {
-  font-size: 18px;
-  margin-bottom: 6px;
+    font-size: 18px;
+    margin-bottom: 6px;
 }
 
 .information-img-wrapper {
-  width: 860px;
-  height: fit-content;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
+    width: 860px;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 .information-img {
-  width: 50%;
-  object-fit: cover;
+    width: 50%;
+    object-fit: cover;
 }
 
 //appendix
 
 .appendix {
-  position: sticky !important;
-  top: 20%;
-  text-align: left;
-  height: fit-content;
-  border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 0 10px 3px #f2f2f2;
+    position: sticky !important;
+    top: 20%;
+    text-align: left;
+    height: fit-content;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 0 10px 3px #f2f2f2;
 }
 
 .appendix-title {
-  font-weight: 700;
-  font-size: 30px;
+    font-weight: 700;
+    font-size: 30px;
 }
 
 .appendix-inner {
-  margin-left: 16px;
-  padding: 4px 8px;
-  text-decoration: none;
-  color: black;
-  font-size: 16px;
-  &:hover {
-    cursor: pointer;
-    color: rgb(218, 29, 29);
-  }
+    margin-left: 16px;
+    padding: 4px 8px;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    &:hover {
+        cursor: pointer;
+        color: rgb(218, 29, 29);
+    }
 }
 
 .breakpoint-show-content::after {
-  background: linear-gradient(0deg, #fff, #fff 50%, hsla(0deg, 0%, 100%, 0));
-  content: "";
-  height: 370px;
-  position: absolute;
-  top: -4%;
-  width: 100%;
+    background: linear-gradient(0deg, #fff, #fff 50%, hsla(0deg, 0%, 100%, 0));
+    content: "";
+    height: 370px;
+    position: absolute;
+    top: -4%;
+    width: 100%;
 }
 
 .btn-reset-filter {
-  margin-top: 60px;
-  margin-left: 30px;
+    margin-top: 60px;
+    margin-left: 30px;
 }
 
 .update-information {
-  height: 200px;
-  font-size: 30px;
-  color: rgb(153, 153, 153);
-  line-height: 200px;
+    height: 200px;
+    font-size: 30px;
+    color: rgb(153, 153, 153);
+    line-height: 200px;
 }

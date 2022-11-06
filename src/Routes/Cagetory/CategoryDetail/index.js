@@ -1,10 +1,12 @@
 import {Col, Row} from "antd";
-import {t} from "i18next";
+import "../../../translation/i18n";
+import {useTranslation} from "react-i18next";
 import {Link} from "react-router-dom";
 import CategoryDetailItem from "./CategoryItem";
 import PetInformation from "./PetInfomation";
 
 function CategoryDetailItems({item}) {
+    const [t] = useTranslation();
     return (
         <Col span={24} style={{marginTop: "80px"}}>
             <Row

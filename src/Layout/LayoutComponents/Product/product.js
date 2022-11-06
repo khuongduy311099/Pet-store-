@@ -71,7 +71,7 @@ function ProductItem({item}) {
                     <Row className="product-title">
                         <h1>{t(item.name)}</h1>
                     </Row>
-                    <Row className="product-price">{t(item.price)} Vnd</Row>
+                    <Row className="product-price">{t(item.price)} VND</Row>
                     <Row style={{width: "fit-content", alignItems: "right"}}>
                         <Privilege />
                     </Row>

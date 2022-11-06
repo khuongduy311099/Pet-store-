@@ -1,4 +1,5 @@
 import {Col, Row} from "antd";
+import {t} from "i18next";
 import {Link} from "react-router-dom";
 import CategoryDetailItem from "./CategoryItem";
 import PetInformation from "./PetInfomation";
@@ -31,7 +32,7 @@ function CategoryDetailItems({item}) {
                             lineHeight: "200px",
                         }}
                     >
-                        This Type Currently Don't Have Any Product
+                        {t("This Type Currently Don't Have Any Product")}.
                     </Row>
                 )}
             </Row>
@@ -44,7 +45,10 @@ function CategoryDetailItems({item}) {
                             align="center"
                             justify="center"
                             className="update-information"
-                        >{`We will update information about ${item.name} soon`}</Row>
+                        >
+                            {t("We will update information about ")}
+                            {t(item?.name)} {t("soon")}!!!
+                        </Row>
                     )}
                 </Col>
             </Row>

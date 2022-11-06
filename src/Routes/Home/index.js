@@ -24,6 +24,7 @@ import "./index.scss";
 import BannerSlider from "../../Components/BannerSlider";
 import DogTab from "../../Components/DogTab";
 import {Link} from "react-router-dom";
+import {t} from "i18next";
 const {Header, Footer, Sider, Content} = Layout;
 const {Text, Title} = Typography;
 
@@ -87,18 +88,18 @@ function MainLayout() {
                                 bordered
                                 dataSource={[
                                     {
-                                        title: "GIỐNG CHÓ CẢNH",
+                                        title: t("DOG CATEGORY"),
                                         link: "dog-category",
                                         thumb: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/cho-canh-1.png",
                                     },
                                     {
-                                        title: "GIỐNG MÈO CẢNH",
+                                        title: t("CAT CATEGORY"),
                                         link: "cat-category",
 
                                         thumb: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/meo-canh-1.png",
                                     },
                                     {
-                                        title: "SPA AND GROOMING",
+                                        title: t("SPA AND GROOMING"),
                                         link: "services",
                                         thumb: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/spa-cho-meo-1.png",
                                     },
@@ -152,7 +153,7 @@ function MainLayout() {
                     <Row>
                         <Col span={24} className="container">
                             <Title style={{color: "#b90000"}} level={3}>
-                                Giá sốc
+                                {t("Hot Deal")}
                             </Title>
                             <ImageSlider slides={slides} />
                         </Col>

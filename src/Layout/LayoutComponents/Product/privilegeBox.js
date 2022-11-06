@@ -15,7 +15,7 @@ function Privilege() {
                         )}
                     </li>
                     <li className="privilege-content">
-                        {t("Warranty up to up to 365 days.")}
+                        {t("Warranty up to up to 365 days")}.
                     </li>
                     <li className="privilege-content">
                         {t("Pet health insurance up to 1.000.000 VND")}

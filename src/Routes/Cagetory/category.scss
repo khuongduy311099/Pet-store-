@@ -16,6 +16,11 @@
     padding: 4px;
 }
 
+.select-wrapper .ant-select .ant-select-selector {
+    border-radius: 10px !important;
+    height: 35px !important;
+}
+
 .filter-box-select {
     width: 80%;
     text-align: center;
@@ -89,6 +94,9 @@
 }
 
 //pet information
+
+.information-wrapper {
+}
 
 .information-title {
 }

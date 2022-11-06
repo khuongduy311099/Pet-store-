@@ -215,7 +215,7 @@ function PetInformation({information, name}) {
                         )}
                 </Col>
                 <Col className="appendix" span={5} offset={3}>
-                    <Row className="appendix-title">Phụ lục</Row>
+                    <Row className="appendix-title">{t("Appendix")}</Row>
                     {information.map((item, i) => (
                         <Row>
                             <a

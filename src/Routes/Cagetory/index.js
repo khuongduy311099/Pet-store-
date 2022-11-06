@@ -10,7 +10,14 @@ import {Link} from "react-router-dom";
 import {ReloadOutline} from "@ant-design/icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faRotateBack, faRotateForward} from "@fortawesome/free-solid-svg-icons";
+
+//translation
+import "../../translation/i18n";
+import {useTranslation} from "react-i18next";
+import {type} from "@testing-library/user-event/dist/type";
 function Cagetory({listItem}) {
+    const [t] = useTranslation();
+
     //Dog filter
     const filterDogValue = {
         hair: "0",
@@ -179,22 +186,22 @@ function Cagetory({listItem}) {
                                 labelInValue
                                 defaultValue={{
                                     value: "0",
-                                    label: "Chọn Kiểu Lông",
+                                    label: t("Filter By Hair Type"),
                                 }}
                                 className="filter-box-select"
                                 onChange={handleChangeDogHair}
                                 options={[
                                     {
                                         value: "Long",
-                                        label: "Dài",
+                                        label: t("Long Hair"),
                                     },
                                     {
                                         value: "Short",
-                                        label: "Ngắn",
+                                        label: t("Short Hair"),
                                     },
                                     {
                                         value: "Medium",
-                                        label: "Trung bình",
+                                        label: t("Medium Hair"),
                                     },
                                 ]}
                             />
@@ -204,22 +211,22 @@ function Cagetory({listItem}) {
                                 labelInValue
                                 defaultValue={{
                                     value: "0",
-                                    label: "Chọn Kích Thước",
+                                    label: t("Filter By Size"),
                                 }}
                                 className="filter-box-select"
                                 onChange={handleChangeDogSize}
                                 options={[
                                     {
                                         value: "Small",
-                                        label: "Nhỏ",
+                                        label: t("Small"),
                                     },
                                     {
                                         value: "Medium",
-                                        label: "Trung bình",
+                                        label: t("Medium"),
                                     },
                                     {
                                         value: "Big",
-                                        label: "Lớn",
+                                        label: t("Large"),
                                     },
                                 ]}
                             />
@@ -229,18 +236,18 @@ function Cagetory({listItem}) {
                                 labelInValue
                                 defaultValue={{
                                     value: "0",
-                                    label: "Chọn Mục Đích Nuôi",
+                                    label: t("Filter By Purpose"),
                                 }}
                                 className="filter-box-select"
                                 onChange={handleChangeDogPurpose}
                                 options={[
                                     {
                                         value: "Make friends",
-                                        label: "Làm cảnh và bầu bạn",
+                                        label: t("Make friends"),
                                     },
                                     {
                                         value: "Guardian",
-                                        label: "Canh gác và bảo vệ",
+                                        label: t("Guardian"),
                                     },
                                 ]}
                             />
@@ -252,22 +259,22 @@ function Cagetory({listItem}) {
                                 labelInValue
                                 defaultValue={{
                                     value: "0",
-                                    label: "Chọn Độ Phổ Biến",
+                                    label: t("Filter By Popularity"),
                                 }}
                                 className="filter-box-select"
                                 onChange={handleChangeDogPopularity}
                                 options={[
                                     {
                                         value: "Hot",
-                                        label: "Hot",
+                                        label: t("Hot"),
                                     },
                                     {
                                         value: "Medium",
-                                        label: "Trung bình",
+                                        label: t("Medium"),
                                     },
                                     {
                                         value: "Rare",
-                                        label: "Hiếm",
+                                        label: t("Rare"),
                                     },
                                 ]}
                             />
@@ -277,22 +284,22 @@ function Cagetory({listItem}) {
                                 labelInValue
                                 defaultValue={{
                                     value: "0",
-                                    label: "Chọn Nhu Cầu Vận Động",
+                                    label: t("Filter By Activity"),
                                 }}
                                 className="filter-box-select"
                                 onChange={handleChangeDogActivity}
                                 options={[
                                     {
                                         value: "Low",
-                                        label: "Thấp",
+                                        label: t("Low"),
                                     },
                                     {
                                         value: "Medium",
-                                        label: "Trung bình",
+                                        label: t("Medium"),
                                     },
                                     {
                                         value: "High",
-                                        label: "Cao",
+                                        label: t("High"),
                                     },
                                 ]}
                             />
@@ -302,66 +309,62 @@ function Cagetory({listItem}) {
                                 labelInValue
                                 defaultValue={{
                                     value: "0",
-                                    label: "Chọn Nhóm Chó",
+                                    label: t("Filter By Dog Pattern"),
                                 }}
                                 className="filter-box-select"
                                 onChange={handleChangeDogPattern}
                                 options={[
                                     {
                                         value: "Bull Dog",
-                                        label: "Bull Dog",
+                                        label: t("Bull Dog"),
                                     },
                                     {
                                         value: "Long Hair Dog",
-                                        label: "Long Hair Dog",
+                                        label: t("Long Hair Dog"),
                                     },
                                     {
                                         value: "Japanese Dog",
-                                        label: "Japanese Dog",
+                                        label: t("Japanese Dog"),
                                     },
                                     {
                                         value: "Sheep Dog",
-                                        label: "Sheep Dog",
+                                        label: t("Sheep Dog"),
                                     },
                                     {
                                         value: "Sled Dog",
-                                        label: "Sled Dog",
+                                        label: t("Sled Dog"),
                                     },
                                     {
                                         value: "Terrier",
-                                        label: "Terrier",
+                                        label: t("Terrier"),
                                     },
                                     {
                                         value: "Shepherd",
-                                        label: "Shepherd",
+                                        label: t("Shepherd"),
                                     },
                                     {
                                         value: "Vietnamese Dog",
-                                        label: "Vietnamese Dog",
+                                        label: t("Vietnamese Dog"),
                                     },
                                     {
                                         value: "Chinese Dog",
-                                        label: "Chinese Dog",
+                                        label: t("Chinese Dog"),
                                     },
                                     {
                                         value: "Hungting Dog",
-                                        label: "Hungting Dog",
-                                    },
-                                    {
-                                        value: "Hound",
-                                        label: "Hound",
+                                        label: t("Hunting Dog"),
                                     },
                                     {
                                         value: "Becgie",
-                                        label: "Becgie",
+                                        label: t("Becgie"),
                                     },
                                     {
                                         value: "Bichon",
-                                        label: "Bichon",
+                                        label: t("Bichon"),
                                     },
                                     {
                                         value: "Family Dog",
-                                        label: "Family Dog",
+                                        label: t("Family Dog"),
                                     },
                                 ]}
                             />
@@ -416,22 +419,22 @@ function Cagetory({listItem}) {
                                 labelInValue
                                 defaultValue={{
                                     value: "0",
-                                    label: "Chọn Kiểu Lông",
+                                    label: t("Filter By Hair Type"),
                                 }}
                                 className="filter-box-select"
                                 onChange={handleChangeCatHair}
                                 options={[
                                     {
                                         value: "Long",
-                                        label: "Dài",
+                                        label: t("Long Hair"),
                                     },
                                     {
                                         value: "Short",
-                                        label: "Ngắn",
+                                        label: t("Short Hair"),
                                     },
                                     {
                                         value: "Medium",
-                                        label: "Trung bình",
+                                        label: t("Medium Hair"),
                                     },
                                 ]}
                             />
@@ -442,18 +445,18 @@ function Cagetory({listItem}) {
                                 labelInValue
                                 defaultValue={{
                                     value: "0",
-                                    label: "Chọn Màu Sắc",
+                                    label: t("Filter By Color"),
                                 }}
                                 className="filter-box-select"
                                 onChange={handleChangeCatColor}
                                 options={[
                                     {
                                         value: "Single",
-                                        label: "Một Màu",
+                                        label: "Single Color",
                                     },
                                     {
                                         value: "Multi",
-                                        label: "Nhiều màu",
+                                        label: "Multiple Color",
                                     },
                                 ]}
                             />
@@ -465,22 +468,22 @@ function Cagetory({listItem}) {
                                 labelInValue
                                 defaultValue={{
                                     value: "0",
-                                    label: "Chọn Độ Phổ Biến",
+                                    label: t("Filter By Popularity"),
                                 }}
                                 className="filter-box-select"
                                 onChange={handleChangeCatPopularity}
                                 options={[
                                     {
                                         value: "Hot",
-                                        label: "Hot",
+                                        label: t("Hot"),
                                     },
                                     {
                                         value: "Medium",
-                                        label: "Trung bình",
+                                        label: t("Medium"),
                                     },
                                     {
                                         value: "Rare",
-                                        label: "Hiếm",
+                                        label: t("Rare"),
                                     },
                                 ]}
                             />
@@ -490,22 +493,22 @@ function Cagetory({listItem}) {
                                 labelInValue
                                 defaultValue={{
                                     value: "0",
-                                    label: "Chọn Mức Độ Rụng Lông",
+                                    label: t("Filter By Hair Fall"),
                                 }}
                                 className="filter-box-select"
                                 onChange={handleChangeCatHairFall}
                                 options={[
                                     {
                                         value: "Low",
-                                        label: "Thấp",
+                                        label: t("Low"),
                                     },
                                     {
                                         value: "Medium",
-                                        label: "Trung bình",
+                                        label: t("Medium"),
                                     },
                                     {
                                         value: "High",
-                                        label: "Cao",
+                                        label: t("High"),
                                     },
                                 ]}
                             />
@@ -515,22 +518,22 @@ function Cagetory({listItem}) {
                                 labelInValue
                                 defaultValue={{
                                     value: "0",
-                                    label: "Chọn Ngoại Hình",
+                                    label: t("Filter By Outlook"),
                                 }}
                                 className="filter-box-select"
                                 onChange={handleChangeCatOutLook}
                                 options={[
                                     {
                                         value: "Luxury",
-                                        label: "Quý Tộc",
+                                        label: t("Luxury"),
                                     },
                                     {
                                         value: "Cute",
-                                        label: "Đáng Yêu",
+                                        label: t("Cute"),
                                     },
                                     {
                                         value: "Unique",
-                                        label: "Độc Lạ",
+                                        label: t("Unique"),
                                     },
                                 ]}
                             />

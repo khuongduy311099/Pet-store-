@@ -1063,7 +1063,7 @@ const dogData = [
     purpose: "Make friends",
     popularity: "Hot",
     activity: "Low",
-    pattern: "Hound",
+    pattern: "Hunting Dog",
     information: [
       {
         title: "THÔNG TIN VỀ CHÓ PUG MẶT XỆ",
@@ -1142,7 +1142,7 @@ const dogData = [
     purpose: "Make friends",
     popularity: "Rare",
     activity: "High",
-    pattern: "Hound",
+    pattern: "Hunting Dog",
     information: [
       {
         title: "THÔNG TIN VỀ CHÓ PUG MẶT XỆ",
@@ -3769,7 +3769,7 @@ const catData = [
     ],
   },
   {
-    name: "Perman",
+    name: "Birman",
     img: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/meo-than-mien-dien-Birman.jpg",
     hair: "Short",
     color: "Single",

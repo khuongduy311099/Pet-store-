@@ -27,6 +27,7 @@ import BreedTab from "../../Components/BreedTab";
 import { Link } from "react-router-dom";
 import { catData, catPattern, dogData, dogPattern } from "../../Data";
 import pawPrintLogo from "../../assets/Logo/pawprint.png";
+import { t } from "i18next";
 const { Header, Footer, Sider, Content } = Layout;
 const { Text, Title } = Typography;
 
@@ -74,6 +75,12 @@ const slides = [
 ];
 
 function MainLayout() {
+  const user = {
+    name: "Khương Duy",
+    avatar:
+      "https://scontent.fsgn2-2.fna.fbcdn.net/v/t1.6435-1/185188939_2885221165066292_6106096938833222997_n.jpg?stp=dst-jpg_p320x320&_nc_cat=103&ccb=1-7&_nc_sid=7206a8&_nc_ohc=WMAltXsmAxcAX_nh7lc&_nc_ht=scontent.fsgn2-2.fna&oh=00_AfBRorrMS81-kgKzNWUgQ9jD8kramXUd-bVd0B8VyqBzCg&oe=637F4366",
+  };
+
   return (
     <>
       <ContentContainer>
@@ -85,28 +92,34 @@ function MainLayout() {
                 bordered
                 dataSource={[
                   {
-                    title: "GIỐNG CHÓ CẢNH",
+                    title: t("DOG CATEGORY"),
+                    link: "dog-category",
                     thumb:
                       "https://azpet.b-cdn.net/wp-content/uploads/2021/06/cho-canh-1.png",
                   },
                   {
-                    title: "GIỐNG MÈO CẢNH",
+                    title: t("CAT CATEGORY"),
+                    link: "cat-category",
+
                     thumb:
                       "https://azpet.b-cdn.net/wp-content/uploads/2021/06/meo-canh-1.png",
                   },
                   {
-                    title: "SPA AND GROOMING",
+                    title: t("SPA AND GROOMING"),
+                    link: "services",
                     thumb:
                       "https://azpet.b-cdn.net/wp-content/uploads/2021/06/spa-cho-meo-1.png",
                   },
                 ]}
                 renderItem={(item) => (
-                  <List.Item>
-                    <Space size={"middle"}>
-                      <Avatar size={60} src={item.thumb} />
-                      <Title level={5}>{item?.title}</Title>
-                    </Space>
-                  </List.Item>
+                  <Link to={`/${item?.link}`}>
+                    <List.Item>
+                      <Space size={"middle"}>
+                        <Avatar size={60} src={item.thumb} />
+                        <Title level={5}>{item?.title}</Title>
+                      </Space>
+                    </List.Item>
+                  </Link>
                 )}
               />
             </Col>
@@ -142,7 +155,7 @@ function MainLayout() {
           <Row>
             <Col span={24} className="container">
               <Title style={{ color: "#b90000" }} level={3}>
-                Giá sốc
+                {t("Hot Deal")}
               </Title>
               <ImageSlider slides={slides} />
             </Col>

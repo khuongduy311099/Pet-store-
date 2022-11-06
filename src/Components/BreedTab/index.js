@@ -5,8 +5,11 @@ import Tab from "@mui/material/Tab";
 import "./index.scss";
 import React, { useState } from "react";
 
+const { Text } = Typography;
+
 const AntTabs = styled(Tabs)({
   borderBottom: "1px solid #e8e8e8",
+  width: "100%",
   "& .MuiTabs-indicator": {
     backgroundColor: "#9b0000",
     height: 3,
@@ -15,7 +18,7 @@ const AntTabs = styled(Tabs)({
 
 const AntTab = styled((props) => <Tab disableRipple {...props} />)(
   ({ theme }) => ({
-    //textTransform: "none",
+    textTransform: "none",
     minWidth: 0,
     [theme.breakpoints.up("sm")]: {
       minWidth: 0,
@@ -23,7 +26,7 @@ const AntTab = styled((props) => <Tab disableRipple {...props} />)(
     fontWeight: theme.typography.fontWeightRegular,
     color: "rgba(0, 0, 0, 0.85)",
     "&:hover": {
-      color: "red",
+      color: "#9b0000",
       opacity: 1,
     },
     "&.Mui-selected": {
@@ -36,25 +39,33 @@ const AntTab = styled((props) => <Tab disableRipple {...props} />)(
   })
 );
 
-function DogTab({ slides }) {
-  const [value, setValue] = useState(0);
+function BreedTab({ type, breedBanner, breedData, breedPattern, title }) {
+  const [value, setValue] = useState("all");
+  const [tabList, setTabList] = useState(breedData);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    if (newValue === "all") {
+      setTabList(breedData);
+    } else {
+      let tabList;
+      if (type === "cat")
+        tabList = breedData.filter((item) => item.outLook === newValue);
+      else tabList = breedData.filter((item) => item.pattern === newValue);
+      setTabList(tabList);
+    }
   };
+
   return (
     <div className="container">
       <Row>
         <Col span={4}>
           <Row className="h2-header"></Row>
           <Row className="tab-title">
-            <h2 className="tab-left-title">GIỐNG CHÓ CẢNH</h2>
+            <h2 className="tab-left-title">{title}</h2>
           </Row>
           <Row>
-            <img
-              className="tab-background-img"
-              src="https://azpet.b-cdn.net/wp-content/uploads/2021/07/azpet-banner-cho-canh-desktop.jpg"
-            />
+            <img className="tab-background-img" src={breedBanner} />
           </Row>
         </Col>
         <Col span={20}>
@@ -71,27 +82,25 @@ function DogTab({ slides }) {
                 },
               }}
             >
-              <AntTab label="Item One" />
-              <AntTab label="Item Two" />
-              <AntTab label="Item Three" />
-              <AntTab label="Item Four" />
-              <AntTab label="Item Five" />
-              <AntTab label="Item Six" />
-              <AntTab label="Item Seven" />
-              <AntTab label="Item One" />
-              <AntTab label="Item Two" />
-              <AntTab label="Item Three" />
-              <AntTab label="Item Four" />
-              <AntTab label="Item Five" />
-              <AntTab label="Item Six" />
-              <AntTab label="Item Seven" />
+              <AntTab value={"all"} label={"All"} />
+              {breedPattern &&
+                breedPattern.map((item, index) => (
+                  <AntTab key={index} value={item.value} label={item.label} />
+                ))}
             </AntTabs>
           </Row>
-          <Row>
-            <Col span={6}></Col>
-            <Col span={6}></Col>
-            <Col span={6}></Col>
-            <Col span={6}></Col>
+          <Row className="breed-container">
+            {tabList &&
+              tabList.map((item, index) => (
+                <Col key={index} className="tab-items">
+                  <div className="tab-item">
+                    <div style={{ width: "100%" }}>
+                      <img src={item.img}></img>
+                    </div>
+                    <Text className="title">{item.name}</Text>
+                  </div>
+                </Col>
+              ))}
           </Row>
         </Col>
       </Row>
@@ -99,4 +108,4 @@ function DogTab({ slides }) {
   );
 }
 
-export default DogTab;
+export default BreedTab;

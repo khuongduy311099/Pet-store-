@@ -17,7 +17,7 @@ function ImageSlider({ slides }) {
     >
       {slides &&
         slides.map((item, index) => (
-          <Carousel.Item>
+          <Carousel.Item key={index}>
             <Row justify={"center"}>
               <Col span={24}>
                 <img className="img" src={item?.url} />

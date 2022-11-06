@@ -20,7 +20,9 @@ function CategoryDetailItem({item}) {
                         alt={item?.name}
                     ></img>
                 </Row>
-                <Row className="category-detail-name">{t(item?.name)}</Row>
+                <Row className="category-detail-name">
+                    {t(item?.name)} {!!item.id ? item.id : ""}
+                </Row>
                 <Row className="category-detail-price">{item?.price} VND</Row>
             </Link>
         </Col>

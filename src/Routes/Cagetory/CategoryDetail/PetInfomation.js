@@ -21,7 +21,7 @@ function PetInformation({information, name}) {
                         className="information-title"
                         style={{marginTop: "20px"}}
                     >
-                        <h2>{information[0]?.title}</h2>
+                        <h2>{t(information[0]?.title)}</h2>
                     </Row>
                     {!!information[0]?.content.desc1 ? (
                         <Row
@@ -29,21 +29,21 @@ function PetInformation({information, name}) {
                                 moreContent ? null : "breakpoint-show-content"
                             }`}
                         >
-                            {information[0]?.content?.desc1}
+                            {t(information[0]?.content?.desc1)}
                         </Row>
                     ) : (
                         <div style={{display: "none"}}></div>
                     )}
                     {!!information[0]?.content.desc2 && moreContent ? (
                         <Row className="information-desc">
-                            {information[0]?.content?.desc2}
+                            {t(information[0]?.content?.desc2)}
                         </Row>
                     ) : (
                         <div style={{display: "none"}}></div>
                     )}
                     {!!information[0]?.content.desc3 && moreContent ? (
                         <Row className="information-desc">
-                            {information[0]?.content?.desc3}
+                            {t(information[0]?.content?.desc3)}
                         </Row>
                     ) : (
                         <div style={{display: "none"}}></div>
@@ -73,12 +73,12 @@ function PetInformation({information, name}) {
                                         id={item?.title}
                                         className="information-title"
                                     >
-                                        <h2>{item?.title}</h2>
+                                        <h2>{t(item?.title)}</h2>
                                     </Row>
                                     {!!item?.content?.feature1 ? (
                                         <Row className="information-desc">
                                             <strong>
-                                                {item?.content.feature1}
+                                                {t(item?.content.feature1)}
                                             </strong>
                                         </Row>
                                     ) : (
@@ -86,7 +86,7 @@ function PetInformation({information, name}) {
                                     )}
                                     {!!item?.content?.desc1 ? (
                                         <Row className="information-desc">
-                                            - {item?.content.desc1}
+                                            - {t(item?.content.desc1)}
                                         </Row>
                                     ) : (
                                         <div style={{display: "none"}}></div>
@@ -105,7 +105,7 @@ function PetInformation({information, name}) {
                                     {!!item?.content?.feature2 ? (
                                         <Row className="information-desc">
                                             <strong>
-                                                {item?.content.feature2}
+                                                {t(item?.content.feature2)}
                                             </strong>
                                         </Row>
                                     ) : (
@@ -113,7 +113,7 @@ function PetInformation({information, name}) {
                                     )}
                                     {!!item?.content?.desc2 ? (
                                         <Row className="information-desc">
-                                            - {item?.content.desc2}
+                                            - {t(item?.content.desc2)}
                                         </Row>
                                     ) : (
                                         <div style={{display: "none"}}></div>
@@ -132,7 +132,7 @@ function PetInformation({information, name}) {
                                     {!!item?.content?.feature3 ? (
                                         <Row className="information-desc">
                                             <strong>
-                                                {item?.content.feature3}
+                                                {t(item?.content.feature3)}
                                             </strong>
                                         </Row>
                                     ) : (
@@ -140,7 +140,7 @@ function PetInformation({information, name}) {
                                     )}
                                     {!!item?.content?.desc3 ? (
                                         <Row className="information-desc">
-                                            - {item?.content.desc3}
+                                            - {t(item?.content.desc3)}
                                         </Row>
                                     ) : (
                                         <div style={{display: "none"}}></div>
@@ -159,7 +159,7 @@ function PetInformation({information, name}) {
                                     {!!item?.content?.feature4 ? (
                                         <Row className="information-desc">
                                             <strong>
-                                                {item?.content.feature4}
+                                                {t(item?.content.feature4)}
                                             </strong>
                                         </Row>
                                     ) : (
@@ -167,7 +167,7 @@ function PetInformation({information, name}) {
                                     )}
                                     {!!item?.content?.desc4 ? (
                                         <Row className="information-desc">
-                                            - {item?.content.desc4}
+                                            - {t(item?.content.desc4)}
                                         </Row>
                                     ) : (
                                         <div style={{display: "none"}}></div>
@@ -186,7 +186,7 @@ function PetInformation({information, name}) {
                                     {!!item?.content?.feature5 ? (
                                         <Row className="information-desc">
                                             <strong>
-                                                {item?.content.feature5}
+                                                {t(item?.content.feature5)}
                                             </strong>
                                         </Row>
                                     ) : (
@@ -194,7 +194,7 @@ function PetInformation({information, name}) {
                                     )}
                                     {!!item?.content?.desc5 ? (
                                         <Row className="information-desc">
-                                            - {item?.content.desc5}
+                                            - {t(item?.content.desc5)}
                                         </Row>
                                     ) : (
                                         <div style={{display: "none"}}></div>
@@ -222,7 +222,7 @@ function PetInformation({information, name}) {
                                 className="appendix-inner"
                                 href={`#${item?.title}`}
                             >
-                                {i + 1}. {item.title}
+                                {i + 1}. {t(item.title)}
                             </a>
                         </Row>
                     ))}

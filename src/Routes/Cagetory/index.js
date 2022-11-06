@@ -14,7 +14,6 @@ import {faRotateBack, faRotateForward} from "@fortawesome/free-solid-svg-icons";
 //translation
 import "../../translation/i18n";
 import {useTranslation} from "react-i18next";
-import {type} from "@testing-library/user-event/dist/type";
 function Cagetory({listItem}) {
     const [t] = useTranslation();
 
@@ -539,6 +538,8 @@ function Cagetory({listItem}) {
                             />
                         </Col>
                     </Row>
+                </Col>
+                <Col span={1}>
                     <Button
                         className="btn-reset-filter"
                         type="primary"

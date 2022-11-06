@@ -27,8 +27,8 @@ function ProductItem({item}) {
                 }}
             >
                 <Col style={{alignItems: "right"}} span={12}>
-                    <Row>
-                        <Col span={12} offset={6}>
+                    <Row style={{textAlign: "center"}}>
+                        <Col span={24}>
                             <img
                                 className="main-img"
                                 src={currentItemImage}
@@ -36,11 +36,7 @@ function ProductItem({item}) {
                             />
                         </Col>
                     </Row>
-                    <Row
-                        align="center"
-                        justify="space-between"
-                        className="carousel"
-                    >
+                    <Row className="carousel">
                         {listImg.map((item, i) => {
                             let active;
                             if (item === currentItemImage) {
@@ -67,7 +63,14 @@ function ProductItem({item}) {
                         })}
                     </Row>
                 </Col>
-                <Col style={{width: "700px", marginTop: "3%"}} span={12}>
+                <Col
+                    style={{
+                        width: "700px",
+                        marginTop: "3%",
+                        marginLeft: "6%",
+                    }}
+                    span={12}
+                >
                     <Row className="product-title">
                         <h1>{t(item.name)}</h1>
                     </Row>

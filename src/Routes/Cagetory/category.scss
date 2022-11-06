@@ -37,12 +37,12 @@
 
 .category-item-wrapper {
     display: block;
+    padding-top: 25px;
     transition: all 0.5s;
     margin-bottom: 20px;
     border-radius: 10px;
     border-bottom: 5px solid white;
     background-color: white;
-    box-shadow: 2px 5px #e3e1e1;
     &:hover {
         box-shadow: 0 5px 5px 0 rgb(219, 216, 216);
         border-bottom: 5px solid rgb(167, 64, 64);
@@ -52,7 +52,8 @@
 
 .category-item-name {
     text-align: center;
-    font-weight: 700;
+    font-weight: 400;
+    font-size: 20px;
     color: black;
 }
 
@@ -81,16 +82,18 @@
 
 .category-detail-name {
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.5;
     margin-top: 0;
     text-align: left;
+    color: black !important;
 }
 
 .category-detail-price {
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 700;
     text-align: left;
+    color: black !important;
 }
 
 //pet information

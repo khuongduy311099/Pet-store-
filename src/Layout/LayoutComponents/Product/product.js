@@ -8,14 +8,18 @@ import "./product.scss";
 import "../../../translation/i18n";
 import {useTranslation} from "react-i18next";
 import Privilege from "./privilegeBox";
+import {useEffect} from "react";
 function ProductItem({item}) {
-    const [t] = useTranslation();
-    let listImg = Object.values(item?.img);
+    localStorage.setItem("currentItem", JSON.stringify(item));
+    const renderList = JSON.parse(localStorage.getItem("currentItem"));
 
+    const [t] = useTranslation();
+    let listImg = Object.values(renderList?.img);
     const [currentItemImage, setCurrentItemImage] = useState(listImg[0]);
     const handleCarousel = (i) => {
         setCurrentItemImage(listImg[i]);
     };
+
     return (
         <Row align="center" justify="center" style={{marginTop: "5%"}}>
             <Col
@@ -28,11 +32,11 @@ function ProductItem({item}) {
             >
                 <Col style={{alignItems: "right"}} span={12}>
                     <Row style={{textAlign: "center"}}>
-                        <Col span={24}>
+                        <Col style={{height: "500px"}} span={24}>
                             <img
                                 className="main-img"
                                 src={currentItemImage}
-                                alt={item?.name}
+                                alt={renderList?.name}
                             />
                         </Col>
                     </Row>
@@ -72,9 +76,14 @@ function ProductItem({item}) {
                     span={12}
                 >
                     <Row className="product-title">
-                        <h1>{t(item.name)}</h1>
+                        <h1>
+                            {t(renderList?.name)}{" "}
+                            {!!renderList?.id ? t(renderList.id) : ""}
+                        </h1>
                     </Row>
-                    <Row className="product-price">{t(item.price)} VND</Row>
+                    <Row className="product-price">
+                        {t(renderList?.price)} VND
+                    </Row>
                     <Row style={{width: "fit-content", alignItems: "right"}}>
                         <Privilege />
                     </Row>

@@ -77,7 +77,7 @@ function MainLayout() {
                                     },
                                     {
                                         title: t("SPA AND GROOMING"),
-                                        link: "services",
+                                        link: "upcoming",
                                         thumb: "https://azpet.b-cdn.net/wp-content/uploads/2021/06/spa-cho-meo-1.png",
                                     },
                                 ]}

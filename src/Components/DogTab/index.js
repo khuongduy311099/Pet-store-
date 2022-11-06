@@ -87,6 +87,12 @@ function DogTab({ slides }) {
               <AntTab label="Item Seven" />
             </AntTabs>
           </Row>
+          <Row>
+            <Col span={6}></Col>
+            <Col span={6}></Col>
+            <Col span={6}></Col>
+            <Col span={6}></Col>
+          </Row>
         </Col>
       </Row>
     </div>

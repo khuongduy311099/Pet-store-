@@ -88,6 +88,41 @@
 }
 
 .header-menu {
-  min-width: 680px;
+  min-width: 700px;
+  max-width: 1200px;
   height: 80px;
+  .ant-menu-item {
+    text-align: center;
+    width: 170px;
+    text-transform: uppercase;
+    font-size: 15px;
+    line-height: 80px;
+    font-weight: 600;
+    &:hover {
+      color: #9b0000 !important;
+      &::after {
+        border-bottom: 3px solid #9b0000 !important;
+      }
+      a {
+        color: #9b0000 !important;
+      }
+    }
+    &-selected {
+      color: #9b0000 !important;
+      font-weight: 700;
+      &::after {
+        border-bottom: 3px solid #9b0000 !important;
+      }
+      a {
+        color: #9b0000 !important;
+      }
+    }
+  }
+}
+
+.header-menu-icon {
+  line-height: 70px;
+  width: 20px;
+  height: 20px;
+  margin-top: -5px;
 }

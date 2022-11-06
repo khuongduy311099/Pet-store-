@@ -1,7 +1,7 @@
 import { Button, Col, Row } from "antd";
 import CagetoryItem from "./cagetoryItem";
 import { Select } from "antd";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { dogData, catData } from "../../Data";
 import { Link } from "react-router-dom";
@@ -18,6 +18,7 @@ import {
 import "../../translation/i18n";
 import { useTranslation } from "react-i18next";
 import ContentContainer from "../../Layout/LayoutComponents/ContentContainer/footer";
+import { GlobalContext } from "../../Context/globalContext";
 
 const initialDogValue = {
   hair: "0",
@@ -36,14 +37,20 @@ const initialCatValue = {
   outLook: "0",
 };
 
-function Cagetory({ listItem }) {
+function Cagetory({ type }) {
+  const globalContext = useContext(GlobalContext);
   const [t] = useTranslation();
   const [dogFilter, setDogFilter] = useState(initialDogValue);
   const [catFilter, setCatFilter] = useState(initialCatValue);
 
   //Dog filter
 
-  const [renderList, setRenderList] = useState(listItem);
+  const [renderListDog, setRenderListDog] = useState(dogData);
+  const [renderListCat, setRenderListCat] = useState(catData);
+
+  useEffect(() => {
+    globalContext.setRoute(type);
+  }, [type]);
 
   const handleFilterDog = (value, type) => {
     let dogFilter1 = dogFilter;
@@ -93,11 +100,11 @@ function Cagetory({ listItem }) {
       list = list.filter((item) => item.pattern === dogFilter1.pattern);
     }
 
-    setRenderList(list);
+    setRenderListDog(list);
   };
 
   const handleResetDogFilter = () => {
-    setRenderList(listItem);
+    setRenderListDog(dogData);
     setDogFilter({
       hair: "0",
       size: "0",
@@ -111,6 +118,7 @@ function Cagetory({ listItem }) {
   //Cat filter
 
   const handleFilterCat = (value, type) => {
+    console.log(value);
     let catFilter1 = catFilter;
     switch (type) {
       case "hair":
@@ -133,6 +141,8 @@ function Cagetory({ listItem }) {
     }
     setCatFilter(catFilter1);
 
+    console.log(catFilter1);
+
     let list = catData;
 
     if (catFilter1.hair !== "0") {
@@ -151,11 +161,11 @@ function Cagetory({ listItem }) {
       list = list.filter((item) => item.outLook === catFilter1.outLook);
     }
 
-    setRenderList(list);
+    setRenderListCat(list);
   };
 
   const handleResetCatFilter = () => {
-    setRenderList(listItem);
+    setRenderListCat(catData);
     setCatFilter({
       hair: "0",
       color: "0",
@@ -167,7 +177,7 @@ function Cagetory({ listItem }) {
 
   return (
     <ContentContainer>
-      {listItem === dogData ? ( // Dog category
+      {type === "dog" ? ( // Dog category
         <Col span={24}>
           <Row align="center" justify="center">
             <Col span={18} className="filter-box-wrapper">
@@ -438,7 +448,7 @@ function Cagetory({ listItem }) {
             }}
           >
             <Row align="center" style={{ width: "86%", marginTop: "10px" }}>
-              {renderList.map((item) => (
+              {renderListDog.map((item) => (
                 <CagetoryItem item={item} />
               ))}
             </Row>
@@ -588,7 +598,7 @@ function Cagetory({ listItem }) {
                 </Col>
                 <Col className="select-wrapper" span={8}>
                   <Select
-                    labelInValues
+                    labelInValue
                     defaultValue={{
                       value: "0",
                       label: t("Filter By Outlook"),
@@ -597,10 +607,11 @@ function Cagetory({ listItem }) {
                       catFilter.outLook === "0"
                         ? {
                             value: "0",
-                            label: t("Filter By By Outlook"),
+                            label: t("Filter By Outlook"),
                           }
                         : catFilter.outLook
                     }
+                    s
                     className="filter-box-select"
                     onChange={(value) => handleFilterCat(value, "outLook")}
                     options={[
@@ -648,7 +659,7 @@ function Cagetory({ listItem }) {
             }}
           >
             <Row align="center" style={{ width: "86%", marginTop: "10px" }}>
-              {renderList.map((item) => (
+              {renderListCat.map((item) => (
                 <CagetoryItem item={item} />
               ))}
             </Row>

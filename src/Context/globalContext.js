@@ -8,6 +8,7 @@ import { Avatar } from "antd";
 const GlobalContext = createContext();
 
 function GlobalProvider({ children }) {
+  const [route, setRoute] = useState();
   const handleChangeLanguage = (lang) => {
     localStorage.setItem("currentLanguage", JSON.stringify(lang));
     i18n.changeLanguage(lang);
@@ -36,6 +37,8 @@ function GlobalProvider({ children }) {
   const currentItemValue = {
     handleChangeLanguage,
     languageIcon,
+    route,
+    setRoute,
   };
 
   return (

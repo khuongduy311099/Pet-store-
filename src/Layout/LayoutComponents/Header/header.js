@@ -5,6 +5,10 @@ import { Avatar, Button, Dropdown, Menu, Space } from "antd";
 import EnFlag from "../../../assets/Logo/united-kingdom.png";
 import VnFlag from "../../../assets/Logo/vietnam.png";
 import KorFlag from "../../../assets/Logo/south-korea.png";
+import dogIcon from "../../../assets/Logo/dog.png";
+import catIcon from "../../../assets/Logo/cat.png";
+import homeIcon from "../../../assets/Logo/pets-hotel-house-sign-with-a-paw.png";
+import groomIcon from "../../../assets/Logo/grooming.png";
 
 import { GlobalContext } from "../../../Context/globalContext";
 
@@ -13,30 +17,28 @@ import "./header.scss";
 import i18n from "../../../translation/i18n";
 const items = [
   {
-    label: "Navigation One",
-    key: "mail",
-    //icon: <MailOutlined />,
+    label: <Link to="/">Home</Link>,
+    key: "home",
+    icon: <img className="header-menu-icon" src={homeIcon} />,
   },
   {
-    label: "Navigation Two",
-    key: "app",
-    //icon: <AppstoreOutlined />,
+    label: <Link to="/dog-category">Dog Breed</Link>,
+    key: "dog",
+    icon: <img className="header-menu-icon" src={dogIcon} />,
   },
   {
-    label: "Navigation Two",
-    key: "app",
-    //icon: <AppstoreOutlined />,
+    label: <Link to="/cat-category">Cat Breed</Link>,
+    key: "cat",
+    icon: <img className="header-menu-icon" src={catIcon} />,
   },
   {
-    label: "Navigation Two",
-    key: "app",
-    //icon: <AppstoreOutlined />,
+    label: <Link to="/upcoming">Services</Link>,
+    key: "services",
+    icon: <img className="header-menu-icon" src={groomIcon} />,
   },
 ];
 
 function LayoutHeader({ main }) {
-  const [current, setCurrent] = useState("mail");
-
   const currentUser = {
     name: "Khương Duy",
     avatar:
@@ -45,14 +47,12 @@ function LayoutHeader({ main }) {
   const globalContext = useContext(GlobalContext);
 
   const onClick = (e) => {
-    console.log("click ", e);
-    setCurrent(e.key);
+    globalContext.setRoute(e.key);
   };
 
   const menu = (
     <Menu
       onClick={(e) => {
-        console.log(globalContext);
         globalContext.handleChangeLanguage(e.key);
       }}
       items={[
@@ -85,31 +85,10 @@ function LayoutHeader({ main }) {
         />
       </Link>
       <Space style={{ marginBottom: "10px" }}>
-        {/* <Link to="/dog-category">
-          <Avatar
-            className="header-link"
-            src="https://azpet.b-cdn.net/wp-content/uploads/2021/06/cho-canh-1.png"
-            size={45}
-          />
-        </Link>
-        <Link to="/cat-category">
-          <Avatar
-            className="header-link"
-            src="https://azpet.b-cdn.net/wp-content/uploads/2021/06/meo-canh-1.png"
-            size={45}
-          />
-        </Link>
-        <Link to="/upcoming">
-          <Avatar
-            className="header-link"
-            src="https://azpet.b-cdn.net/wp-content/uploads/2021/06/spa-cho-meo-1.png"
-            size={45}
-          />
-        </Link> */}
         <Menu
           className="header-menu"
           onClick={onClick}
-          selectedKeys={[current]}
+          selectedKeys={[globalContext.route]}
           mode="horizontal"
           items={items}
         />

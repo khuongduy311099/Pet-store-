@@ -27,14 +27,8 @@ function App() {
           <Route path="/" element={<MainLayout />} />
           <Route path="/login" element={<LoginLayout />} />
           <Route path="/register" element={<RegisterLayout />} />
-          <Route
-            path="/dog-category"
-            element={<Cagetory listItem={dogData} />}
-          ></Route>
-          <Route
-            path="/cat-category"
-            element={<Cagetory listItem={catData} />}
-          ></Route>
+          <Route path="/dog-category" element={<Cagetory type="dog" />}></Route>
+          <Route path="/cat-category" element={<Cagetory type="cat" />}></Route>
           {dogData.map((item, i) => (
             <Route
               key={i}

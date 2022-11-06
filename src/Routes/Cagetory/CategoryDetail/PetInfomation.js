@@ -5,7 +5,7 @@ import {useState} from "react";
 import {Link} from "react-router-dom";
 
 import "../category.scss";
-function PetInformation({information}) {
+function PetInformation({information, name}) {
     const [moreContent, setMoreContent] = useState(false);
     const handleShowMore = () => {
         setMoreContent(!moreContent);
@@ -35,14 +35,14 @@ function PetInformation({information}) {
                     ) : (
                         <div style={{display: "none"}}></div>
                     )}
-                    {!!information[0]?.content.desc2 ? (
+                    {!!information[0]?.content.desc2 && moreContent ? (
                         <Row className="information-desc">
                             {information[0]?.content?.desc2}
                         </Row>
                     ) : (
                         <div style={{display: "none"}}></div>
                     )}
-                    {!!information[0]?.content.desc3 ? (
+                    {!!information[0]?.content.desc3 && moreContent ? (
                         <Row className="information-desc">
                             {information[0]?.content?.desc3}
                         </Row>

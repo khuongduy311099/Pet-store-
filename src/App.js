@@ -5,7 +5,7 @@ import LayoutFooter from "./Layout/LayoutComponents/Footer/footer";
 import LayoutHeader from "./Layout/LayoutComponents/Header/header";
 import Product from "./Layout/LayoutComponents/Product/product";
 import LoginLayout from "./Layout/LoginLayout/Login";
-import MainLayout from "./Layout/MainLayout";
+import MainLayout from "./Routes/Home";
 import RegisterLayout from "./Layout/RegisterLayout/RegisterLayout";
 import Cagetory from "./Routes/Cagetory";
 import CategoryDetailItem from "./Routes/Cagetory/CategoryDetail";
@@ -13,12 +13,20 @@ import CategoryDetailItems from "./Routes/Cagetory/CategoryDetail";
 import { dogData, catData } from "./Data";
 import ProductItem from "./Layout/LayoutComponents/Product/product";
 
-const { Content } = Layout;
+const { Content, Footer } = Layout;
 function App() {
+  const allDogListProduct = dogData.map((item) => item.listProduct);
+  const allCatListProduct = catData.map((item) => item.listProduct);
+
   return (
     <Layout>
       <LayoutHeader />
-      <Content style={{ padding: "150px 50px", backgroundColor: "white" }}>
+      <Content
+        style={{
+          padding: "50px 50px",
+          backgroundColor: "white",
+        }}
+      >
         <Routes>
           <Route path="/" element={<MainLayout />} />
           <Route path="/login" element={<LoginLayout />} />
@@ -33,12 +41,26 @@ function App() {
           ></Route>
           {dogData.map((item, i) => (
             <Route
-              path={`dog-category/${encodeURI(item.name)}`}
+              path={`/${encodeURI(item.name)}`}
               element={<CategoryDetailItems item={item} />}
             ></Route>
           ))}
 
-          {dogData?.map((item) =>
+          {allDogListProduct?.map((item) =>
+            item?.map((product) => (
+              <Route
+                path={`/product/${product.name}`}
+                element={<ProductItem item={product} />}
+              ></Route>
+            ))
+          )}
+          {catData.map((item, i) => (
+            <Route
+              path={`/${encodeURI(item.name)}`}
+              element={<CategoryDetailItems item={item} />}
+            ></Route>
+          ))}
+          {allCatListProduct?.map((item) =>
             item?.map((product) => (
               <Route
                 path={`/product/${product.name}`}
@@ -49,7 +71,9 @@ function App() {
         </Routes>
       </Content>
 
-      <LayoutFooter />
+      <Footer style={{ textAlign: "center" }}>
+        ©2022 Created by KhuongDuy
+      </Footer>
     </Layout>
   );
 }

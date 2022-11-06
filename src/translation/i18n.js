@@ -26,6 +26,7 @@ const resources = {
     translation: Spanish,
   },
 };
+
 const lang = JSON.parse(localStorage.getItem("currentLanguage"));
 i18n
   .use(Backend)

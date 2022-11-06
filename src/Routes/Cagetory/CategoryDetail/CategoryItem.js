@@ -4,13 +4,13 @@ import "../category.scss";
 function CategoryDetailItem({item}) {
     return (
         <Col
-            className="category-detail-item-wrapper"
-            style={{marginBottom: "20px"}}
             span={5}
             offset={1}
+            className="category-detail-item-wrapper"
+            style={{marginBottom: "20px"}}
         >
-            <Link to={`/product/${item.name}`}>
-                <Row>
+            <Link to={`/product/${item?.name}`}>
+                <Row align="center" justify="center">
                     <img
                         className="category-img"
                         src={item?.img?.img1}

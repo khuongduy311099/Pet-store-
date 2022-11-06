@@ -448,9 +448,21 @@ function Cagetory({ type }) {
             }}
           >
             <Row align="center" style={{ width: "86%", marginTop: "10px" }}>
-              {renderListDog.map((item) => (
-                <CagetoryItem item={item} />
-              ))}
+              {renderListDog && renderListDog.length > 0 ? (
+                renderListDog.map((item) => <CagetoryItem item={item} />)
+              ) : (
+                <div
+                  style={{
+                    height: "100px",
+                    fontSize: "20px",
+                    lineHeight: "100px",
+                    color: "#979797",
+                    marginTop: "100px",
+                  }}
+                >
+                  {t("There's no item you required")}
+                </div>
+              )}
             </Row>
           </Row>
         </Col>
@@ -659,9 +671,21 @@ function Cagetory({ type }) {
             }}
           >
             <Row align="center" style={{ width: "86%", marginTop: "10px" }}>
-              {renderListCat.map((item) => (
-                <CagetoryItem item={item} />
-              ))}
+              {renderListCat && renderListCat.length > 0 ? (
+                renderListCat.map((item) => <CagetoryItem item={item} />)
+              ) : (
+                <div
+                  style={{
+                    height: "100px",
+                    fontSize: "20px",
+                    lineHeight: "100px",
+                    color: "#979797",
+                    marginTop: "100px",
+                  }}
+                >
+                  {t("There's no item you required")}
+                </div>
+              )}
             </Row>
           </Row>
         </Col>

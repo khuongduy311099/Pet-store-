@@ -7,7 +7,7 @@ function UpcomingPage() {
         height: "725px",
         textAlign: "center",
         lineHeight: "670px",
-        fontSize: "40px",
+        fontSize: "20px",
         color: "#bdbdbd",
         overflow: "hidden",
       }}

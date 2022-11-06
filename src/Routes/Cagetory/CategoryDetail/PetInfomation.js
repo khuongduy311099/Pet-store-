@@ -232,9 +232,10 @@ function PetInformation({information, name}) {
                 <Button
                     size="large"
                     style={{
-                        fontSize: "22px",
-                        width: "fit-content",
-                        height: "fit-content",
+                        fontSize: "15px",
+                        width: "100px",
+                        height: "40px",
+                        padding: "0 4px",
                         borderRadius: "10px",
                         backgroundColor: "#b90000",
                         color: "white",

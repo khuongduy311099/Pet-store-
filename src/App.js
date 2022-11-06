@@ -12,6 +12,7 @@ import CategoryDetailItem from "./Routes/Cagetory/CategoryDetail";
 import CategoryDetailItems from "./Routes/Cagetory/CategoryDetail";
 import {dogData, catData} from "./Data";
 import ProductItem from "./Layout/LayoutComponents/Product/product";
+import UpcomingPage from "./Routes/upcomingFeature";
 function App() {
     const allDogListProduct = dogData.map((item) => item.listProduct);
 
@@ -51,6 +52,7 @@ function App() {
                             ></Route>
                         ))
                     )}
+                    <Route path="/upcoming" element={<UpcomingPage />}></Route>
                 </Routes>
             </Content>
 

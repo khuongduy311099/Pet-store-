@@ -4,7 +4,7 @@ import {faEarthAsia, faSearch} from "@fortawesome/free-solid-svg-icons";
 import Tippy from "@tippyjs/react/headless";
 import "tippy.js/animations/scale.css";
 import {Link} from "react-router-dom";
-import {Avatar, Button, Dropdown, Menu, Space} from "antd";
+import {Avatar, Button, Col, Dropdown, Menu, Row, Space} from "antd";
 import EnFlag from "../../../assets/Logo/united-kingdom.png";
 import VnFlag from "../../../assets/Logo/vietnam.png";
 import KorFlag from "../../../assets/Logo/south-korea.png";
@@ -59,6 +59,29 @@ function LayoutHeader({main}) {
                     className="logo"
                 />
             </Link>
+            <Space style={{marginBottom: "10px"}}>
+                <Link to="/dog-category">
+                    <Avatar
+                        className="header-link"
+                        src="https://azpet.b-cdn.net/wp-content/uploads/2021/06/cho-canh-1.png"
+                        size={45}
+                    />
+                </Link>
+                <Link to="/cat-category">
+                    <Avatar
+                        className="header-link"
+                        src="https://azpet.b-cdn.net/wp-content/uploads/2021/06/meo-canh-1.png"
+                        size={45}
+                    />
+                </Link>
+                <Link to="/upcoming">
+                    <Avatar
+                        className="header-link"
+                        src="https://azpet.b-cdn.net/wp-content/uploads/2021/06/spa-cho-meo-1.png"
+                        size={45}
+                    />
+                </Link>
+            </Space>
             <div className="header-icon">
                 <Space>
                     <Dropdown
@@ -71,25 +94,7 @@ function LayoutHeader({main}) {
                     >
                         {globalContext.languageIcon(i18n.language)}
                     </Dropdown>
-
                     {currentUser ? (
-                        // <div className="user">
-                        //   <Tippy
-                        //     render={(attr) => (
-                        //       <div className="username">{currentUser.name}</div>
-                        //     )}
-                        //     animation={false}
-                        //     offset={[30, 10]}
-                        //     placement="bottom-end"
-                        //     delay={[50, 500]}
-                        //   >
-                        //     <img
-                        //       src={currentUser.avatar}
-                        //       className="avatar"
-                        //       alt={currentUser.name}
-                        //     />
-                        //   </Tippy>
-                        // </div>
                         <Avatar size={30} src={currentUser.avatar} />
                     ) : (
                         <Link to="/login">
@@ -99,12 +104,6 @@ function LayoutHeader({main}) {
                         </Link>
                     )}
                 </Space>
-                {/* <SearchPopper>
-          <FontAwesomeIcon className="icon" icon={faSearch} />
-        </SearchPopper> */}
-                {/* <LanguagePopper>
-          <FontAwesomeIcon className="icon" icon={faEarthAsia} />
-        </LanguagePopper> */}
             </div>
         </div>
     );

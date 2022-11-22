@@ -8,6 +8,16 @@
     vertical-align: text-bottom;
 }
 
+.filter-box-wrapper-dark-mode {
+    width: 1400px;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    box-shadow: 0 3px 13px rgb(77, 74, 74);
+    height: 150px;
+    vertical-align: text-bottom;
+}
+
 .select-wrapper {
     align-items: center;
     justify-content: center;
@@ -49,6 +59,8 @@
     }
 }
 
+
+
 .category-item-name {
     text-align: center;
     font-weight: 400;
@@ -60,6 +72,20 @@
 //detail category list item
 .category-detail-item-wrapper {
     border-bottom: 5px solid white;
+    transition: all 0.5s;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    width: 100%;
+    max-height: fit-content;
+    min-width: 200px;
+    &:hover {
+        border-bottom: 5px solid red;
+        cursor: pointer;
+    }
+}
+
+.category-detail-item-wrapper-dark-mode {
+    border-bottom: 5px solid black;
     transition: all 0.5s;
     padding-bottom: 10px;
     border-radius: 5px;
@@ -89,6 +115,15 @@
     color: black !important;
 }
 
+.category-detail-name-dark-mode {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 0;
+    text-align: left;
+    color: white !important;
+}
+
 .category-detail-price {
     font-size: 20px;
     font-weight: 600;
@@ -96,15 +131,33 @@
     color: black !important;
 }
 
+.category-detail-price-dark-mode {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+    color: white !important;
+}
 //pet information
 
 .information-wrapper {
 }
 
 .information-title {
+    color: black !important
+}
+
+.information-title-dark-mode {
+    color: white !important
 }
 
 .information-desc {
+    color: black;
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.information-desc-dark-mode {
+    color: white;
     font-size: 18px;
     margin-bottom: 6px;
 }
@@ -134,7 +187,24 @@
     box-shadow: 0 0 10px 3px #f2f2f2;
 }
 
+.appendix-dark-mode {
+    position: sticky !important;
+    top: 20%;
+    text-align: left;
+    height: fit-content;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 0 10px 3px #272626;
+}
+
 .appendix-title {
+    color: black;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.appendix-title-dark-mode {
+    color: white;
     font-weight: 700;
     font-size: 30px;
 }
@@ -151,8 +221,29 @@
     }
 }
 
+.appendix-inner-dark-mode {
+    margin-left: 16px;
+    padding: 4px 8px;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    &:hover {
+        cursor: pointer;
+        color: rgb(249, 52, 52);
+    }
+}
+
 .breakpoint-show-content::after {
     background: linear-gradient(0deg, #fff, #fff 50%, hsla(0deg, 0%, 100%, 0));
+    content: "";
+    height: 370px;
+    position: absolute;
+    top: -4%;
+    width: 100%;
+}
+
+.breakpoint-show-content-dark-mode::after {
+    background: linear-gradient(0deg, black, black 50%, hsla(0deg, 0%, 100%, 0));
     content: "";
     height: 370px;
     position: absolute;

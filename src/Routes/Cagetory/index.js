@@ -180,7 +180,14 @@ function Cagetory({ type }) {
       {type === "dog" ? ( // Dog category
         <Col span={24}>
           <Row align="center" justify="center">
-            <Col span={18} className="filter-box-wrapper">
+            <Col
+              span={18}
+              className={
+                !globalContext.darkmode
+                  ? "filter-box-wrapper"
+                  : "filter-box-wrapper-dark-mode"
+              }
+            >
               <Row style={{ marginTop: "22px" }}>
                 <Col className="select-wrapper" span={8}>
                   <Select
@@ -470,7 +477,14 @@ function Cagetory({ type }) {
         // Cat category list
         <Col span={24}>
           <Row align="center" justify="center">
-            <Col span={18} className="filter-box-wrapper">
+            <Col
+              span={18}
+              className={
+                !globalContext.darkmode
+                  ? "filter-box-wrapper"
+                  : "filter-box-wrapper-dark-mode"
+              }
+            >
               <Row
                 style={{ marginTop: "22px" }}
                 align="center"

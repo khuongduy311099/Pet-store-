@@ -26,6 +26,7 @@ import BreedTab from "../../Components/BreedTab";
 import { Link } from "react-router-dom";
 import { catData, catPattern, dogData, dogPattern } from "../../Data";
 import pawPrintLogo from "../../assets/Logo/pawprint.png";
+import pawLogoDarkmode from "../../assets/Logo/paw-dark-mode.png";
 import "../../translation/i18n";
 import { useTranslation } from "react-i18next";
 
@@ -70,7 +71,11 @@ function MainLayout() {
           <Row gutter={[8, 0]} type="flex">
             <Col span={6}>
               <List
-                className="list-button"
+                className={
+                  !globalContext.darkmode
+                    ? "list-button"
+                    : "list-button-dark-mode"
+                }
                 bordered
                 dataSource={[
                   {
@@ -133,15 +138,22 @@ function MainLayout() {
               </Row>
             </Col>
           </Row>
-          {/* <Row>
-            <Col span={24}>
-              <BannerSlider slides={slides} />
-            </Col>
-          </Row> */}
 
           <Row>
-            <Col span={24} className="container">
-              <Title style={{ color: "#b90000" }} level={3}>
+            <Col
+              span={24}
+              className={
+                !globalContext.darkmode ? "container" : "container-dark-mode"
+              }
+            >
+              <Title
+                style={{
+                  color: !globalContext.darkmode
+                    ? "#b90000"
+                    : "rgb(204, 61, 61)",
+                }}
+                level={3}
+              >
                 {t("Hot Deal")}
               </Title>
               <ImageSlider slides={slides} />
@@ -160,6 +172,7 @@ function MainLayout() {
           <img
             src="https://azpet.b-cdn.net/wp-content/uploads/2021/07/hop-tac-nhan-giong-cho-canh.jpg"
             width={"100%"}
+            alt="dog-breed-banner"
           ></img>
 
           <BreedTab
@@ -173,21 +186,48 @@ function MainLayout() {
           />
         </Row>
 
-        <Row justify={"center"} className="exclusive-right-container">
+        <Row
+          justify={"center"}
+          className={
+            !globalContext.darkmode
+              ? "exclusive-right-container"
+              : "exclusive-right-container-dark-mode"
+          }
+        >
           <Col span={24}>
             <Text className="title">{t("EXCLUSIVE ONLY IN PET STORE")}</Text>
           </Col>
 
           <Col span={24}>
             <span className="line-header-line" />
-            <img className="paw-logo" src={pawPrintLogo}></img>
+            <img
+              className="paw-logo"
+              src={!globalContext.darkmode ? pawPrintLogo : pawLogoDarkmode}
+              alt="paw"
+            ></img>
             <span className="line-header-line"></span>
           </Col>
         </Row>
-        <Row gutter={[30, 0]} className="exclusive-right-container">
+        <Row
+          gutter={[30, 0]}
+          className={
+            !globalContext.darkmode
+              ? "exclusive-right-container"
+              : "exclusive-right-container-dark-mode"
+          }
+        >
           <Col span={6}>
-            <div className="exclusive-right-list-container">
-              <img src="https://azpet.b-cdn.net/wp-content/uploads/2021/07/mua-thu-cung-tra-gop-12-thang.gif"></img>
+            <div
+              className={
+                !globalContext.darkmode
+                  ? "exclusive-right-list-container"
+                  : "exclusive-right-list-container-dark-mode"
+              }
+            >
+              <img
+                src="https://azpet.b-cdn.net/wp-content/uploads/2021/07/mua-thu-cung-tra-gop-12-thang.gif"
+                alt="promote"
+              ></img>
               <Divider className="divider" />
               <Text className="title">
                 {t("Warranty up to up to 365 days")}
@@ -195,8 +235,17 @@ function MainLayout() {
             </div>
           </Col>
           <Col span={6}>
-            <div className="exclusive-right-list-container">
-              <img src="https://azpet.b-cdn.net/wp-content/uploads/2021/07/bao-hanh-365-ngay.gif"></img>
+            <div
+              className={
+                !globalContext.darkmode
+                  ? "exclusive-right-list-container"
+                  : "exclusive-right-list-container-dark-mode"
+              }
+            >
+              <img
+                src="https://azpet.b-cdn.net/wp-content/uploads/2021/07/bao-hanh-365-ngay.gif"
+                alt="warranty promote"
+              ></img>
               <Divider className="divider" />
               <Text className="title">
                 {t("Warranty up to up to 365 days")}
@@ -204,8 +253,17 @@ function MainLayout() {
             </div>
           </Col>
           <Col span={6}>
-            <div className="exclusive-right-list-container">
-              <img src="https://azpet.b-cdn.net/wp-content/uploads/2021/07/ho-tro-chi-phi-kham-chua-benh.gif"></img>
+            <div
+              className={
+                !globalContext.darkmode
+                  ? "exclusive-right-list-container"
+                  : "exclusive-right-list-container-dark-mode"
+              }
+            >
+              <img
+                src="https://azpet.b-cdn.net/wp-content/uploads/2021/07/ho-tro-chi-phi-kham-chua-benh.gif"
+                alt="heathcare-promote"
+              ></img>
               <Divider className="divider" />
               <Text className="title">
                 {t("Pet health insurance up to 1.000.000 VND")}
@@ -213,8 +271,17 @@ function MainLayout() {
             </div>
           </Col>
           <Col span={6}>
-            <div className="exclusive-right-list-container">
-              <img src="https://azpet.b-cdn.net/wp-content/uploads/2021/07/mien-phi-van-chuyen.gif"></img>
+            <div
+              className={
+                !globalContext.darkmode
+                  ? "exclusive-right-list-container"
+                  : "exclusive-right-list-container-dark-mode"
+              }
+            >
+              <img
+                src="https://azpet.b-cdn.net/wp-content/uploads/2021/07/mien-phi-van-chuyen.gif"
+                alt="shipping-promote"
+              ></img>
               <Divider className="divider" />
               <Text className="title">{t("Free shipping nationally")}</Text>
             </div>

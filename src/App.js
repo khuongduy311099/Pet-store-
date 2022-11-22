@@ -9,18 +9,19 @@ import CategoryDetailItems from "./Routes/Cagetory/CategoryDetail";
 import { dogData, catData } from "./Data";
 import ProductItem from "./Layout/LayoutComponents/Product/product";
 import UpcomingPage from "./Routes/upcomingFeature";
-
+import { GlobalContext } from "./Context/globalContext";
+import { useContext } from "react";
 function App() {
   const allDogListProduct = dogData.map((item) => item.listProduct);
   const allCatListProduct = catData.map((item) => item.listProduct);
-
+  const globalContext = useContext(GlobalContext);
   return (
     <Layout>
       <LayoutHeader />
       <Content
         style={{
           padding: "50px 50px",
-          backgroundColor: "white",
+          backgroundColor: !globalContext.darkmode ? "white" : "black",
         }}
       >
         <Routes>
@@ -66,7 +67,17 @@ function App() {
         </Routes>
       </Content>
 
-      <Footer style={{ textAlign: "center" }}>
+      <Footer
+        style={
+          !globalContext.darkmode
+            ? {
+                textAlign: "center",
+                backgroundColor: "white",
+                color: "black",
+              }
+            : { textAlign: "center", backgroundColor: "black", color: "white" }
+        }
+      >
         ©2022 Created by KhuongDuy
       </Footer>
     </Layout>

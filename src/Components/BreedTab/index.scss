@@ -63,3 +63,32 @@
     }
   }
 }
+
+.tab-items-dark-mode {
+  width: 20%;
+  .tab-item {
+    width: 100%;
+    height: 220px;
+    text-align: center;
+    &:hover {
+      border-bottom: 4px solid rgb(204, 61, 61);
+      border-radius: 5px;
+      box-shadow: white 0px 2px 8px 0px;
+    }
+    img {
+      margin-top: 15px;
+      width: 100px;
+      height: 150px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+    .title {
+      font-size: medium;
+      color:  white !important
+    }
+  }
+}
+
+// .css-rk9361-MuiButtonBase-root-MuiTab-root {
+//   color: white !important
+// }

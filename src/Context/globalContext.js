@@ -9,6 +9,7 @@ const GlobalContext = createContext();
 
 function GlobalProvider({ children }) {
   const [route, setRoute] = useState();
+  const [darkmode, setDarkmode] = useState(false);
   const handleChangeLanguage = (lang) => {
     localStorage.setItem("currentLanguage", JSON.stringify(lang));
     i18n.changeLanguage(lang);
@@ -39,6 +40,8 @@ function GlobalProvider({ children }) {
     languageIcon,
     route,
     setRoute,
+    darkmode,
+    setDarkmode,
   };
 
   return (

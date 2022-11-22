@@ -1,9 +1,9 @@
 import { Button, Col, Row } from "antd";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./product.scss";
 
 //itemContext
-
+import { GlobalContext } from "../../../Context/globalContext";
 // translation
 import "../../../translation/i18n";
 import { useTranslation } from "react-i18next";
@@ -14,6 +14,7 @@ function ProductItem({ item }) {
   const renderList = JSON.parse(localStorage.getItem("currentItem"));
 
   const [t] = useTranslation();
+  const globalContext = useContext(GlobalContext);
   let listImg = Object.values(renderList?.img);
   const [currentItemImage, setCurrentItemImage] = useState(listImg[0]);
   const handleCarousel = (i) => {
